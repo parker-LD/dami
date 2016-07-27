@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 
 use App\Cate;
-use App\good;
+use App\Good;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,13 +16,13 @@ class GoodsController extends Controller
     public function getIndex()
     {
         
-        $goods = good::all();
+        $goods = Good::all();
         
         return view('admin.goods.index',['goods'=>$goods,'title'=>'商品列表']);
     }
     public function getAdd()
     {
-        $cates = Cate::where('pid','0')->get();
+        $cates = Cate::all();
         return view('admin.goods.add',['cates'=>$cates,'title'=>'添加商品']);
     }
     public function postInsert(Request $request)
@@ -34,7 +34,7 @@ class GoodsController extends Controller
 //        dd($request->file('showImg'));
 //        dd($request->file('img'));
 //        dd($request->all());
-        $good = new good();
+        $good = new Good();
         $data = $request->all();
         $good->title = $data['title'];
         $good->cate_id = $data['cate_id'];
@@ -90,7 +90,7 @@ class GoodsController extends Controller
 
     public function getEdit(Request $request)
     {
-        $good = good::where('id',$request->only('id'))->first();
+        $good = Good::where('id',$request->only('id'))->first();
         $cates = Cate::where('pid','0')->get();
         return view('admin.goods.update',['good'=>$good,'cates'=>$cates,'title'=>'修改详情']);
     }
@@ -98,12 +98,12 @@ class GoodsController extends Controller
     public function postUpdate(Request $request)
     {
         $data = $request->all();
-        $good = good::where('id',$request->only('id'))->first();
+        $good = Good::where('id',$request->only('id'))->first();
 
         //判断用户名
         if($good['title'] != $request->title) {
 
-            if(good::where('title','like', $request->title)->first()){
+            if(Good::where('title','like', $request->title)->first()){
 
                 return back()->with('error','文章标题已存在');
 
@@ -123,7 +123,7 @@ class GoodsController extends Controller
 
         if($_FILES['img']['error'][0]==0)
         {
-            $pics = good::select('img')->where('id',$data['id'])->get();
+            $pics = Good::select('img')->where('id',$data['id'])->get();
             foreach (explode(',',$pics[0]->img) as $value)
             {
                 if(file_exists($value)){
@@ -139,7 +139,7 @@ class GoodsController extends Controller
 
     public static function updateFile()
     {
-        $pic = good::select('img')->where('id',Input::only('id'))->first();
+        $pic = Good::select('img')->where('id',Input::only('id'))->first();
 
         $dbpic = '.'.$pic['img'];
 
@@ -155,7 +155,7 @@ class GoodsController extends Controller
     {
         $id = $request->input('id');
 
-        if(good::where('id',$id)->first()->delete()){
+        if(Good::where('id',$id)->first()->delete()){
             return back()->with('info','删除成功!');
         }else{
             return back()->with('error','删除失败!');

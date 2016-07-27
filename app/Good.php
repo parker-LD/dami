@@ -12,6 +12,11 @@ class Good extends Model
     }
     public function skus()
     {
-        return $this->hasMany('App\sku');
+        return $this->hasMany('App\Sku');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 }

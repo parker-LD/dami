@@ -4,8 +4,8 @@ namespace App\Http\Controllers\admin;
 
 
 use App\Cate;
-use App\good;
-use App\sku;
+use App\Good;
+use App\Sku;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +17,7 @@ class SkuController extends Controller
     public function getIndex()
     {
 
-        $sku = sku::all();
+        $sku = Sku::all();
 
 
         return view('admin.sku.index',['title'=>'商品种类列表','skus'=>$sku]);
@@ -27,7 +27,7 @@ class SkuController extends Controller
     public function getAdd(Request $request)
     {
         $data = $request->only('id');
-        $good = good::find($data['id']);
+        $good = Good::find($data['id']);
 
         return view('admin.sku.sku',['title'=>'编辑sku','good'=>$good]);
     }
@@ -35,9 +35,9 @@ class SkuController extends Controller
     {
         $data = $request->only('id');
 
-        $sku = sku::find($data['id']);
+        $sku = Sku::find($data['id']);
         
-        $good = good::find($sku->good_id);
+        $good = Good::find($sku->good_id);
         
         
 
@@ -48,8 +48,8 @@ class SkuController extends Controller
     {
         $data = $request->only('title','good_id');
        
-        if(sku::where('title',$data['title'])->get()->count()){
-            echo sku::where('good_id',$data['good_id'])->count();
+        if(Sku::where('title',$data['title'])->get()->count()){
+            echo Sku::where('good_id',$data['good_id'])->count();
         }else{
             echo '0';
         }
@@ -57,7 +57,7 @@ class SkuController extends Controller
     public function postInsert(Request $request)
     {
         
-        $sku = new sku();
+        $sku = new Sku();
         $data = $request->all();
         $sku->title = $data['title'];
         $sku->good_id = $data['good_id'];
@@ -94,19 +94,19 @@ class SkuController extends Controller
     public function getAjaxEdit(Request $request)
     {
         $data = $request->only('title');
-        $sku = sku::where('title',$data['title'])->first();
+        $sku = Sku::where('title',$data['title'])->first();
         echo json_encode($sku);
     }
 
     public function postUpdate(Request $request)
     {
         $data = $request->all();
-        $sku = sku::find($data['id']);
+        $sku = Sku::find($data['id']);
 
         //判断用户名
         if($sku['title'] != $request->title) {
 
-            if(good::where('title','like', $request->title)->first()){
+            if(Good::where('title','like', $request->title)->first()){
 
                 return back()->with('error','文章标题已存在');
 
@@ -134,7 +134,7 @@ class SkuController extends Controller
 
     public static function updateFile()
     {
-        $pic = sku::select('img')->where('id',Input::only('id'))->first();
+        $pic = Sku::select('img')->where('id',Input::only('id'))->first();
 
         $dbpic = '.'.$pic['img'];
 
@@ -154,8 +154,8 @@ class SkuController extends Controller
         
         $data = $request->only('title','good_id');
 
-        if(sku::where('title',$data['title'])->delete()){
-            echo sku::where('good_id',$data['good_id'])->count();
+        if(Sku::where('title',$data['title'])->delete()){
+            echo Sku::where('good_id',$data['good_id'])->count();
         }else{
             echo '0';
         }
@@ -164,7 +164,7 @@ class SkuController extends Controller
     {
         $data = $request->only('id');
 
-        if(sku::where('id',$data['id'])->delete())
+        if(Sku::where('id',$data['id'])->delete())
         {
             return back()->with('info','删除成功');
         }

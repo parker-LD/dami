@@ -16,6 +16,14 @@ Route::get('/', function () {
 });
 
 
+Route::group(['namespace'=>'home'],function () {
+    Route::get('/list', 'ListController@list_');
+    Route::get('/detail', 'ListController@detail');
+
+
+});
+
+
 Route::group(['prefix'=>'admin','namespace'=>'admin'],function (){
     Route::get('/','AdminController@index');
     Route::controller('/user','UserController');

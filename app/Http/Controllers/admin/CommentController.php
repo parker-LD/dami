@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\comment;
-use App\good;
+use App\Comment;
+use App\Good;
 use Illuminate\Http\Request;
 
 
@@ -13,50 +13,50 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 
-class commentController extends Controller
+class CommentController extends Controller
 {
     public function getIndex()
     {
         
-        $comments = comment::all();
+        $Comments = Comment::all();
         
-        return view('admin.comment.index',['comments'=>$comments,'title'=>'回复列表']);
+        return view('admin.Comment.index',['comments'=>$Comments,'title'=>'回复列表']);
     }
     public function getAdd()
     {
-        $goods = good::all();
-        $comments = comment::where('pid',0)->get();
-        return view('admin.comment.add',['title'=>'添加用户','goods'=>$goods,'comments'=>$comments]);
+        $Goods = Good::all();
+        $Comments = Comment::where('pid',0)->get();
+        return view('admin.Comment.add',['title'=>'添加用户','goods'=>$Goods,'comments'=>$Comments]);
     }
 
-//    public function postInsert(Requests\commentInsertRequest $request)
+//    public function postInsert(Requests\CommentInsertRequest $request)
     public function postInsert(Request $request)
     {
-        $comment = new comment();
+        $Comment = new Comment();
         $data = $request->all();
-        $comment->user_id = $data['user_id'];
-        $comment->good_id = $data['good_id'];
-        $comment->star = $data['star'];
-        $comment->pid = $data['pid'];
+        $Comment->user_id = $data['user_id'];
+        $Comment->Good_id = $data['Good_id'];
+        $Comment->star = $data['star'];
+        $Comment->pid = $data['pid'];
         if($data['pid']==0){
-            $comment->path = 0;
+            $Comment->path = 0;
         }else{
-            $pcomment = comment::find($data['pid']);
-            $comment->path = $pcomment->pid.','.$pcomment->id;
+            $pComment = Comment::find($data['pid']);
+            $Comment->path = $pComment->pid.','.$pComment->id;
         }
-        $comment->status = 1;
+        $Comment->status = 1;
         if($request->hasFile('pic'))
         {
-            $comment->img = self::uploadFile();
+            $Comment->img = self::uploadFile();
 
         }else{
-            $comment->img = config('app.upload_image_dir').'good.png';
+            $Comment->img = config('app.upload_image_dir').'Good.png';
         }
-        $comment->content = $data['content'];
+        $Comment->content = $data['content'];
 
 
-        if($comment->save()){
-            return redirect('admin/comment/add')->with('info','添加成功');
+        if($Comment->save()){
+            return redirect('admin/Comment/add')->with('info','添加成功');
         }else{
             return back()->with('error','添加失败');
         }
@@ -73,50 +73,50 @@ class commentController extends Controller
 
     public function getEdit(Request $request)
     {
-        $comment = comment::find($request->id);
-        $goods = good::all();
-        $comments = comment::where('pid',0)->get();
-        return view('admin.comment.update',['comment'=>$comment,'comments'=>$comments,'goods'=>$goods,'title'=>'修改详情']);
+        $Comment = Comment::find($request->id);
+        $Goods = Good::all();
+        $Comments = Comment::where('pid',0)->get();
+        return view('admin.Comment.update',['comment'=>$Comment,'comments'=>$Comments,'goods'=>$Goods,'title'=>'修改详情']);
     }
 
     public function postUpdate(Request $request)
     {
         $data = $request->all();
-        $comment = comment::where('id',$request->only('id'))->first();
+        $Comment = Comment::where('id',$request->only('id'))->first();
 
         //判断用户名
-        if($comment['title'] != $request->title) {
+        if($Comment['title'] != $request->title) {
 
-            if(comment::where('title','like', $request->title)->first()){
+            if(Comment::where('title','like', $request->title)->first()){
 
                 return back()->with('error','文章标题已存在');
 
             }
         }
 
-        $comment -> user_id = $data['user_id'];
-        $comment -> good_id = $data['good_id'];
-        $comment -> star = $data['star'];
-        $comment -> pid = $data['pid'];
-        $comment -> status = $data['status'];
-        $comment -> content = $data['content'];
+        $Comment -> user_id = $data['user_id'];
+        $Comment -> Good_id = $data['Good_id'];
+        $Comment -> star = $data['star'];
+        $Comment -> pid = $data['pid'];
+        $Comment -> status = $data['status'];
+        $Comment -> content = $data['content'];
         if($request->hasFile('pic')){
             self::updateFile();
-            $comment->img = self::uploadFile();
+            $Comment->img = self::uploadFile();
         }
 
-        $comment -> save();
+        $Comment -> save();
         
-        return redirect('/admin/comment')->with('info','更新成功');
+        return redirect('/admin/Comment')->with('info','更新成功');
     }
 
     public static function updateFile()
     {
-        $pic = comment::select('img')->where('id',Input::only('id'))->first();
+        $pic = Comment::select('img')->where('id',Input::only('id'))->first();
         
         $dbpic = $pic['img'];
 
-        $defaultpic = config('app.upload_image_dir').'comment.png';
+        $defaultpic = config('app.upload_image_dir').'Comment.png';
 
         if($dbpic != $defaultpic)
         {
@@ -131,7 +131,7 @@ class commentController extends Controller
     {
         $id = $request->input('id');
         
-        if(comment::where('id',$id)->first()->delete()){
+        if(Comment::where('id',$id)->first()->delete()){
             return back()->with('info','删除成功!');
         }else{
             return back()->with('error','删除失败!');
