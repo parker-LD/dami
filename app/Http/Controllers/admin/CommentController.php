@@ -19,7 +19,6 @@ class CommentController extends Controller
     {
         
         $Comments = Comment::all();
-        
         return view('admin.Comment.index',['comments'=>$Comments,'title'=>'回复列表']);
     }
     public function getAdd()
@@ -56,7 +55,7 @@ class CommentController extends Controller
 
 
         if($Comment->save()){
-            return redirect('admin/Comment/add')->with('info','添加成功');
+            return redirect('admin/comment/add')->with('info','添加成功');
         }else{
             return back()->with('error','添加失败');
         }
@@ -76,7 +75,7 @@ class CommentController extends Controller
         $Comment = Comment::find($request->id);
         $Goods = Good::all();
         $Comments = Comment::where('pid',0)->get();
-        return view('admin.Comment.update',['comment'=>$Comment,'comments'=>$Comments,'goods'=>$Goods,'title'=>'修改详情']);
+        return view('admin.comment.update',['comment'=>$Comment,'comments'=>$Comments,'goods'=>$Goods,'title'=>'修改详情']);
     }
 
     public function postUpdate(Request $request)
@@ -116,7 +115,7 @@ class CommentController extends Controller
         
         $dbpic = $pic['img'];
 
-        $defaultpic = config('app.upload_image_dir').'Comment.png';
+        $defaultpic = config('app.upload_image_dir').'comment.png';
 
         if($dbpic != $defaultpic)
         {

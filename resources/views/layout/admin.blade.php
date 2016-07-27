@@ -50,7 +50,9 @@
 
     <!-- User Tools (notifications, logout, profile, change password) -->
     <div id="mws-user-tools" class="clearfix">
-
+        <div id="mws-user-message" class="mws-dropdown-menu">
+            <a href=""></a>
+        </div>
 
         <!-- User Information and functions section -->
         <div id="mws-user-info" class="mws-inset">
@@ -66,9 +68,9 @@
                     你好! admin
                 </div>
                 <ul>
-                    <li><a href="#">更改头像</a></li>
-                    <li><a href="#">更改密码</a></li>
-                    <li><a href="/admin/outLogin">退出</a></li>
+                    <li><a href="/admin/user/edit?id={{session('uid')}}">更改头像</a></li>
+                    <li><a href="/admin/user/edit?id={{session('uid')}}">更改密码</a></li>
+                    <li><a href="/admin/login/out-login">退出</a></li>
                 </ul>
             </div>
         </div>
@@ -167,6 +169,7 @@
 </div>
 {{--js部分--}}
 <div>
+
 @section('js')
     <!-- JavaScript Plugins -->
         <script src="/back/js/libs/jquery-1.8.3.min.js"></script>
@@ -196,7 +199,13 @@
     @section('myJs')
 
     @show
-
+    <script type="text/javascript">
+            setInterval(function () {
+                var date = new Date();
+                var time = date.toTimeString();
+                $('#mws-user-message a').html(time);
+            },1000);
+    </script>
 
 </div>
 

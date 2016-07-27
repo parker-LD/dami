@@ -19,12 +19,15 @@ Route::get('/', function () {
 Route::group(['namespace'=>'home'],function () {
     Route::get('/list', 'ListController@list_');
     Route::get('/detail', 'ListController@detail');
-
-
+    Route::get('/comment', 'CommentController@comment');
+    Route::post('/comment/insert', 'CommentController@insert');
 });
 
 
-Route::group(['prefix'=>'admin','namespace'=>'admin'],function (){
+
+
+Route::controller('/admin/login','admin\LoginController');
+Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>'login'],function (){
     Route::get('/','AdminController@index');
     Route::controller('/user','UserController');
     Route::controller('/cate','CateController');

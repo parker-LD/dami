@@ -16,7 +16,7 @@ class User extends Seeder
         for($i=0;$i<50;$i++){
             $temp = [];
             $temp['username'] = str_random(3);
-            $temp['password'] = Hash::make('suibian');
+            $temp['password'] = Hash::make('iloveyou');
             $temp['email'] = str_random(4).'@qq.com';
             $phone = '';
             for($j=0;$j<11;$j++){
@@ -24,6 +24,7 @@ class User extends Seeder
             }
             $temp['phone'] = $phone;
             $temp['level'] = 0;
+            $temp['pic'] = '/image/upload/user.png';
             $temp['status']= 0;
             $data[] = $temp;
         }

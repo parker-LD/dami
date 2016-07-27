@@ -76,6 +76,6 @@ class ListController extends Controller
 
         return view('home.list',['goods'=>$goods]);
     }
-    
+
     
 }
