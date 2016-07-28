@@ -129,6 +129,7 @@
 
 
                                 <input type="hidden" name="sku_attr" value="">
+                                <input type="hidden" name="good_id" value="{{$good->id}}">
                                 <input type="hidden" name="sku_color" value="">
                                 <input type="hidden" name="sku_price" value="">
                                 <dd class="goods-info-head-cart" id="goodsDetailBtnBox">

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class LoginMiddleware
+class HomeMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,12 +18,8 @@ class LoginMiddleware
         if(session('uid')){
             return $next($request);
         }
-
-        //记录上一页面
-        if(array_key_exists('HTTP_REFERER',$_SESSION)){
-            session(['redirectUrl' => $_SERVER['HTTP_REFERER']]);
-        }
-        return redirect('admin/login');
+        session(['back'=>$_SESSION['HTTP_REFERER']]);
+        return redirect('/login');
 
     }
 }

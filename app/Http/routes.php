@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 
+Route::controller('/login','home\LoginController');
 Route::group(['namespace'=>'home'],function () {
     Route::get('/list', 'ListController@list_');
     Route::get('/detail', 'ListController@detail');

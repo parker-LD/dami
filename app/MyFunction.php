@@ -102,7 +102,9 @@ session_start();   //$_SESSION["VerifyCode"]  验证码文本内容!
 //BNZ_yzm(6, 25); //4个数字，显示大小为15 
 
 function BNZ_yzm($num = 4, $size = 20, $width = 0, $height = 0) 
-{  
+{
+    //开启会话跟踪!
+    session_start();   //$_SESSION["VerifyCode"]  验证码文本内容!
     !$width && $width = $num * $size * 4 / 5 + 5;  
     !$height && $height = $size + 10;   
     // 去掉了 0 1 O l 等 
@@ -133,7 +135,7 @@ function BNZ_yzm($num = 4, $size = 20, $width = 0, $height = 0)
     }   
     // 画验证码 
     @imagefttext($im, $size ,rand(-5,5), 5, $size + 3, $text_color, 'c:\\WINDOWS\\Fonts\\simsun.ttc', $code);  
-    $_SESSION["VerifyCode"]=$code;   
+    $_SESSION["VCode"]=$code;
     header("Cache-Control: max-age=1, s-maxage=1, no-cache, must-revalidate");  
     header("Content-type: image/png;charset=gb2312");  
     imagepng($im);  
@@ -475,5 +477,5 @@ function sub_title(){
         ['享你所想 智创未来'],
     ];
     $key = mt_rand(1,8);
-    return $str_arr[$key];
+    return $str_arr[$key][0];
 }

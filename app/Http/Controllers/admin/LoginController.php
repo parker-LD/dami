@@ -23,12 +23,12 @@ class LoginController extends Controller
 //        $password = Hash::make($password);
 
         $user = User::where('username',$username)->first();
-        $upass = $user->password;
 
         if(empty($user)){
             return back()->with('error','无效的用户名!');
         }
 
+        $upass = $user->password;
 
         if(Hash::check($password,$upass)){
 

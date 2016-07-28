@@ -70,7 +70,7 @@ class ListController extends Controller
 
 
         foreach ($goods as $key => $value) {
-            $sub_title = sub_title()[0];
+            $sub_title = sub_title();
             $value->sub_title =$sub_title;
         }
 
