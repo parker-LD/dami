@@ -8,7 +8,10 @@
     <meta name="Description" content="" />
     <title>小米官网</title>
 
-
+    <link rel="stylesheet" href="/homes/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/homes/bootstrap/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="/homes/bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/homes/bootstrap/js/bootstrap.min.js"></script>
 
 
     <link href="/homes/common/css/login.css" rel="stylesheet" type="text/css" />
@@ -22,23 +25,27 @@
 <script type="text/javascript" src="/homes/common/js/utils.js"></script>
 <script type="text/javascript" src="/homes/common/js/jquery.SuperSlide.js"></script>
 <script type="text/javascript" src="/homes/common/js/xiaomi_common.js"></script>
+
+
+
+
+
 <script>
     $(function(){
 
+        @if(session('mark')==1)
+            $('#but').trigger('click');
+        @endif
 
-
-        $("[name='user_name']").focus(function(){
-
-            $('#error').remove();
-        });
 
         //加载清空文本框
-        $("input:text,input:password").val("");
+        $("input:text,input:password").val("").focus(function(){
+            $('#error').remove();
+        });
 
         //提示文字隐藏显示效果
         //登录界面
         $(".enter-area .enter-item").focus(function(){
-
 
             if($(this).val().length==0){
                 $(this).siblings(".placeholder").addClass("hide");
@@ -96,7 +103,10 @@
         top:20px;
 
     }
-
+    #error{
+        color: orangered;
+        text-align: center;
+    }
 
 </style>
 
@@ -154,6 +164,25 @@
         </div>
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">内容已核实 请登录邮箱验证</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <a href="/login/repass">
+                            <button class="btn btn-warning col-xs-offset-5" >确定前往验证</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <button type="button" id="but" class="btn btn-primary col-xs-offset-4 hidden" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></button>
 
     <script type="text/javascript">
         var process_request = "正在处理您的请求...";

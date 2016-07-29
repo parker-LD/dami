@@ -25,29 +25,6 @@
 <script type="text/javascript" src="/homes/common/js/xiaomi_common.js"></script>
 
 
-<link rel="stylesheet" href="/homes/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/homes/bootstrap/css/bootstrap-theme.min.css">
-<script type="text/javascript" src="/homes/bootstrap/js/jquery.min.js"></script>
-<script type="text/javascript" src="/homes/bootstrap/js/bootstrap.min.js"></script>
-
-
-<script type="text/javascript">
-
-
-
-        $(function(){
-
-            @if(session('mark')!=1)
-            $('#but').trigger('click');
-                @endif
-                    $(".enter-area .enter-item").focus(function(){
-
-                $('#error').remove();
-            })
-        })
-
-</script>
-
 
 
 <div id="main" class="layout">
@@ -77,17 +54,17 @@
                             @endif
                         </div>
                         <div class="enter-area">
-                            <input name="username" type="text" style="height: 40px;border: 1px solid #ededed;" class="enter-item first-enter-item" placeholder="用户名">
+                            <input name="username" type="text" class="enter-item first-enter-item" placeholder="用户名">
                             <i class="placeholder">用户名</i>
 
                         </div>
                         <div class="enter-area">
-                            <input name="password" type="password" style="height: 40px;border: 1px solid #ededed;"style="height: 40px;border: 1px solid #ededed;" class="enter-item last-enter-item" placeholder="密码">
+                            <input name="password" type="password" class="enter-item last-enter-item" placeholder="密码">
                             <i class="placeholder">密码</i>
                         </div>
                     </div>
                     <div class="enter-area img-code-area">
-                        <input type="text"  style="height: 40px;border: 1px solid #ededed;" name="Vcode" maxlength="6" placeholder="验证码">
+                        <input type="text"  style="height: 40px;border: 1px solid #ededed; background-color: white" name="Vcode" maxlength="6" placeholder="验证码">
                         <i class="placeholder" style="margin: 10px;">验证码</i>
                         <img src="/login/captcha" alt="captcha" class="icode_image code-image chkcode_img" onclick="this.src='/login/captcha?'+Math.random()" />
                     </div>
@@ -117,22 +94,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="exampleModalLabel">内容已核实 请登录邮箱验证</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <button class="btn btn-warning col-xs-offset-5" >确定前往验证</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <button type="button" id="but" class="btn btn-primary col-xs-offset-4 hidden" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></button>
 
 
 </div>

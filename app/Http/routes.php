@@ -21,7 +21,7 @@ Event::listen('illuminate.query',function($query){
 });
 
 Route::controller('/login','home\LoginController');
-Route::group(['namespace'=>'home'],function () {
+Route::group(['namespace'=>'home','middleware'=>'home'],function () {
     Route::get('/list', 'ListController@list_');
     Route::get('/list_search', 'ListController@list_Search');
     Route::get('/detail', 'ListController@detail');

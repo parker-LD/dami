@@ -16,9 +16,14 @@ class HomeMiddleware
     public function handle($request, Closure $next)
     {
         if(session('uid')){
+
             return $next($request);
+
         }
-        session(['back'=>$_SESSION['HTTP_REFERER']]);
+        if(array_key_exists('HTTp_REFERER',$_SESSION)){
+            session(['back'=>$_SESSION['HTTP_REFERER']]);
+        }
+
         return redirect('/login');
 
     }

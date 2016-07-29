@@ -195,6 +195,6 @@ return [
 
     ],
     'upload_image_dir'     =>  './image/upload/',
-    'APP_NAME' => '144商城',
+    'APP_NAME' => '小米商城',
 
 ];

@@ -69,11 +69,14 @@ class ListController extends Controller
         $goods = Good::whereIn('cate_id',$arr)->get();
 
 
+
         foreach ($goods as $key => $value) {
             $sub_title = sub_title();
             $value->sub_title =$sub_title;
         }
 
+
+        
         return view('home.list',['goods'=>$goods]);
     }
 

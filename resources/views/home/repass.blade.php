@@ -74,53 +74,22 @@
 <div class="register_wrap">
     <div class="bugfix_ie6 dis_none">
         <div class="n-logo-area clearfix">
-            <a href="/" class="fl-l" style="margin-left: 450px"><img src="/homes/common/image/logo.gif" width="55" /></a>
+            <a href="/" class="fl-l" style="margin-left:450px;"><img src="/homes/common/image/logo.gif" width="55" /></a>
         </div>
     </div>
     <div id="main">
         <div class="n-frame device-frame reg_frame">
             <div class="title-item dis_bot35 t_c">
-                <h4 class="title-big">注册小米官网</h4>
+                <h4 class="title-big">重置密码</h4>
             </div>
             <div class="regbox" id="register_box">
-                <form action="/login/register" method="post" name="formUser" onsubmit="return submitPwdInfo();">
+                <form action="/login/repass" method="post" name="formUser" onsubmit="return submitPwdInfo();">
                     <input type="hidden" value="C4E1AB9A7DE79D7C750E8916875E7DBE" id="validate" />
                     <div class="phone_step1">
-                        <style type="text/css">
-                            #error{
-                                color: orangered;
-                                text-align: center;
-                            }
-                        </style>
-                        <div class="enter-area" id="error">
-                            @if (count($errors) > 0)
-                                @foreach ($errors->all() as $error)
-                                    <h3 id="error"> {{ $error }} </h3>
-                                @endforeach
-                            @endif
-                            @if(session('error'))
-                                <h3 id="error">
-                                    {{ session('error') }}
-                                </h3>
-                            @endif
-                        </div>
+
+
                         <input type="hidden" id="sendtype" />
-                        <div class="inputbg">
-                            <label class="labelbox"> <input type="text" name="username" id="username" placeholder="用户名" /> </label>
-                            <span class="t_text">用户名</span>
-                            <span class="error_icon"></span>
-                        </div>
-                        <div class="err_tip" id="username_notice">
-                            <em></em>
-                        </div>
-                        <div class="inputbg">
-                            <label class="labelbox"> <input name="email" type="text" id="email"placeholder="email" /> </label>
-                            <span class="t_text">email</span>
-                            <span class="error_icon"></span>
-                        </div>
-                        <div class="err_tip" id="email_notice">
-                            <em></em>
-                        </div>
+
                         <div class="inputbg">
                             <label class="labelbox"> <input type="password" name="password" id="password1" onblur="check_password(this.value);" onkeyup="check_password(this.value);checkIntensity(this.value);" placeholder="密码" /> </label>
                             <span class="t_text">密码</span>
@@ -137,29 +106,11 @@
                         <div class="err_tip" id="conform_password_notice">
                             <em></em>
                         </div>
-                        <div class="inputbg inputcode dis_box clearfix">
-                            <label class="labelbox label-code"> <input type="text" class="code" name="Vcode" maxlength="6" placeholder="验证码" /> </label>
-                            <span class="t_text">验证码</span>
-                            <span class="error_icon"></span>
-                            <img src="/login/captcha" alt="captcha" class="icode_image code-image chkcode_img" onclick="this.src='/login/captcha?'+Math.random()" />
-                        </div>
-                        <div class="err_tip">
-                            <em></em>
-                        </div>
-                        <div class="law">
-
-                        </div>
-                        <div class="err_tip">
-                            <em></em>
-                        </div>
                         <div class="fixed_bot mar_phone_dis1">
                             {{csrf_field()}}
-                            <input name="Submit" type="submit" value="同意协议并注册" class="btn332 btn_reg_1 submit-step" />
+                            <input name="Submit" type="submit" value="确定提交" class="btn332 btn_reg_1 submit-step" />
                         </div>
-                        <div class="trig">
-                            已有账号?
-                            <a href="/login" class="trigger-box">点击登录</a>
-                        </div>
+
                     </div>
                 </form>
             </div>

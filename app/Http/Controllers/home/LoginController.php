@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Gregwar\Captcha\CaptchaBuilder;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 
 
 class LoginController extends Controller
@@ -90,19 +91,36 @@ class LoginController extends Controller
         }
 
         $e = $user->email;
+
+//        var_dump(env('MAIL_USERNAME'));
+//        var_dump(config('app.APP_NAME'));
+
+//        return view('emails.forget',['user'=> $user]);
         if($email==$e){
             //发邮件
-
-
-
-            
-            $request->session()->keep(['mark','1']);
-            return redirect('/login');
+            $request->session()->put('uid',$user->id);
+            return redirect('/login/password')->with('mark','1');
             //模态框弹出 a邮箱 跳转login
         }
         return back()->with('error','邮箱不匹配!');
     }
+    public function getRepass()
+    {
+        return view('home.repass');
+    }
+    public function postRepass(Request $request)
+    {
+        $data = $request->all();
+        $id = session('uid');
 
+        if($data['confirm_password']==$data['password']){
+
+            $user = User::find($id);
+            $user->password = Hash::make($data['password']);
+            $user->save();
+        }
+        return redirect('/login');
+    }
 
     public function getCaptcha()
     {

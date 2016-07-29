@@ -564,6 +564,7 @@
 
                 {{--这里是需要遍历的单体--}}
                 @foreach($goods as $good)
+                    @if($good->skus->first())
                 <div class="goods-item" style="width:292px;">
                     <div class="figure figure-img">
                         <a href="/detail?id={{$good->id}}"><img src="{{$good->showImg}}" alt="红米Note2" class="goodsimg" /></a>
@@ -580,7 +581,9 @@
                     <div class="thumbs J_attrImg" >
                         <div style="width:212px;margin:0 auto;" >
                             <ul class="thumb-list clearfix J_imgList">
+
                                 <a><img src="{{$good->skus->first()->img}}" width="34" height="34" /></a>
+
                             </ul>
                         </div>
                     </div>
@@ -595,6 +598,7 @@
                         </div>
                     </div>
                 </div>
+                    @endif
                 @endforeach
                 {{--这里是需要遍历的单体 结束--}}
 
