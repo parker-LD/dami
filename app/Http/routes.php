@@ -15,10 +15,15 @@
 //    return view('welcome');
 //});
 
+//监听数据库操作 返回sql语句
+Event::listen('illuminate.query',function($query){
+//     var_dump($query);
+});
 
 Route::controller('/login','home\LoginController');
 Route::group(['namespace'=>'home'],function () {
     Route::get('/list', 'ListController@list_');
+    Route::get('/list_search', 'ListController@list_Search');
     Route::get('/detail', 'ListController@detail');
     Route::get('/comment', 'CommentController@comment');
     Route::post('/comment/insert', 'CommentController@insert');

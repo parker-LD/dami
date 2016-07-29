@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Gregwar\Captcha\CaptchaBuilder;
+use Illuminate\Support\Facades\Input;
+
 
 class LoginController extends Controller
 {
@@ -18,9 +21,14 @@ class LoginController extends Controller
     }
     public function postIndex(Request $request)
     {
-        dd($request->session()->get('VCode'));
         $username = $request->input('username');
         $password = $request->input('password');
+        $Vcode = $request->input('Vcode');
+
+        if(session('Vcode')!=$Vcode){
+            return back()->with('error','验证码有误!');
+        }
+
 
         $user = User::where('username',$username)->first();
         
@@ -37,6 +45,7 @@ class LoginController extends Controller
         }
         return back()->with('error','密码错误!');
 
+
     }
 
     public function getRegister()
@@ -45,6 +54,11 @@ class LoginController extends Controller
     }
     public function postRegister(Requests\RegisterRequest $request)
     {
+        $Vcode = $request->input('Vcode');
+
+        if(session('Vcode')!=$Vcode){
+            return back()->with('error','验证码有误!');
+        }
 
         $user = new User();
         $data = $request->only('username','password','email','');
@@ -71,7 +85,6 @@ class LoginController extends Controller
 
         $user = User::where('username',$username)->first();
 
-
         if(empty($user)){
             return back()->with('error','无效的用户名!');
         }
@@ -79,12 +92,32 @@ class LoginController extends Controller
         $e = $user->email;
         if($email==$e){
             //发邮件
+
+
+
             
+            $request->session()->keep(['mark','1']);
+            return redirect('/login');
             //模态框弹出 a邮箱 跳转login
         }
         return back()->with('error','邮箱不匹配!');
     }
 
 
-   
+    public function getCaptcha()
+    {
+        //生成验证码图片的Builder对象，配置相应属性
+        $builder = new CaptchaBuilder;
+        //可以设置图片宽高及字体
+        $builder->build($width = 100, $height = 40, $font = null);
+        //获取验证码的内容
+        $phrase = $builder->getPhrase();
+
+        //把内容存入session
+        Input::session()->flash('Vcode', $phrase);
+        //生成图片
+        header("Cache-Control: no-cache, must-revalidate");
+        header('Content-Type: image/jpeg');
+        $builder->output();
+    }
 }

@@ -502,7 +502,7 @@ input::-ms-reveal {
 }
 
 .ta-qq,.ta-weibo,.ta-alipay,.ta-facebook,.error-ico {
-	background-image: url("images/sprite_all_82.png")
+	background-image: url("/homes/common/images/sprite_all_82.png")
 }
 
 .has_third .ta-alipay {

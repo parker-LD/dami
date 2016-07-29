@@ -28,7 +28,6 @@
         //提示文字隐藏显示效果
         //登录界面
         $(".enter-area .enter-item").focus(function(){
-            $('#error').remove();
             if($(this).val().length==0){
                 $(this).siblings(".placeholder").addClass("hide");
             }
@@ -45,6 +44,8 @@
         });
         //注册界面
         $(".inputbg input").focus(function(){
+            $('#error').remove();
+
             if($(this).val().length>0){
                 $(this).parent().siblings(".t_text").addClass("hide");
             }
@@ -137,10 +138,10 @@
                             <em></em>
                         </div>
                         <div class="inputbg inputcode dis_box clearfix">
-                            <label class="labelbox label-code"> <input type="text" class="code" name="captcha" maxlength="6" placeholder="验证码" /> </label>
+                            <label class="labelbox label-code"> <input type="text" class="code" name="Vcode" maxlength="6" placeholder="验证码" /> </label>
                             <span class="t_text">验证码</span>
                             <span class="error_icon"></span>
-                            <img src="/captcha.php" alt="captcha" class="icode_image code-image chkcode_img" onclick="this.src='/captcha.php?'+Math.random()" />
+                            <img src="/login/captcha" alt="captcha" class="icode_image code-image chkcode_img" onclick="this.src='/login/captcha?'+Math.random()" />
                         </div>
                         <div class="err_tip">
                             <em></em>

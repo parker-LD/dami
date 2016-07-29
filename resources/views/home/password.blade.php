@@ -8,6 +8,9 @@
     <meta name="Description" content="" />
     <title>小米官网</title>
 
+
+
+
     <link href="/homes/common/css/login.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/homes/common/js/common.js"></script>
     <script type="text/javascript" src="/homes/common/js/user.js"></script>
@@ -22,13 +25,21 @@
 <script>
     $(function(){
 
+
+
+        $("[name='user_name']").focus(function(){
+
+            $('#error').remove();
+        });
+
         //加载清空文本框
         $("input:text,input:password").val("");
 
         //提示文字隐藏显示效果
         //登录界面
         $(".enter-area .enter-item").focus(function(){
-            $('#error').remove();
+
+
             if($(this).val().length==0){
                 $(this).siblings(".placeholder").addClass("hide");
             }
@@ -78,6 +89,20 @@
     var confirm_password_empty = "请输入您的确认密码！";
     var both_password_error = "您两次输入的密码不一致！";
 </script>
+<style type="text/css">
+    img{
+        position: absolute;
+        left: 640px;
+        top:20px;
+
+    }
+
+
+</style>
+
+
+
+
 <div class="register_wrap">
     <div class="bugfix_ie6 dis_none">
         <div class="n-logo-area clearfix">
@@ -87,7 +112,7 @@
     <div id="main" class="">
         <div class="n-frame device-frame reg_frame">
             <div class="title-item dis_bot35 t_c">
-                <h4 class="title-big">请输入您注册的用户名和注册时填写的电子邮件地址。 </h4>
+                <h4 class="title-big">请输入您注册时填写的用户名和电子邮件地址。 </h4>
             </div>
             <div class="regbox">
                 <form action="/login/password" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
@@ -99,13 +124,13 @@
                     </style>
                     <div class="enter-area" id="error">
                         @if(session('error'))
-                            <h3 id="error">
+                            <h4 id="error">
                                 {{ session('error') }}
-                            </h3>
+                            </h4>
                         @endif
                     </div>
                     <div class="inputbg">
-                        <label class="labelbox"> <input name="user_name" type="text" size="30" placeholder="用户名" /> </label>
+                        <label class="labelbox"> <input name="username" type="text" size="30" placeholder="用户名" /> </label>
                         <span class="t_text">用户名</span>
                         <span class="error_icon"></span>
                     </div>
@@ -128,6 +153,8 @@
             <p class="nf-intro"><span>&copy;<a href="http://mm.com/user.php?act=get_password#">mi.com</a> 京ICP证110507号 京ICP备10046444号 京公网安备1101080212535号 <a href="http://mm.com/user.php?act=get_password#">京网文[2014]0059-0009号</a></span></p>
         </div>
     </div>
+
+
     <script type="text/javascript">
         var process_request = "正在处理您的请求...";
         var username_empty = "用户名不能为空。";
@@ -158,5 +185,9 @@
         var username_exist = "用户名 %s 已经存在";
     </script>
 </div>
+
+
+
+
 </body>
 </html>
