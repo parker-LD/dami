@@ -15,7 +15,7 @@ class LoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(session('uid')){
+        if(session('uid')==1){
             return $next($request);
         }
 
