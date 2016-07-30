@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\User;
 use App\Comment;
+use App\Good;
+use App\Sku;
 
 class UserController extends Controller
 {
@@ -198,31 +200,57 @@ class UserController extends Controller
         //获取订单相关商品信息
 
         $goodsInfo = [];
+
         foreach($orders as $key => $value){
             $temp = [];
             $temp['order_num'] = $value->order_num;
             $goodsID = []; 
+            $skuId = [];
             foreach($value->orderGoods as $k=>$v)
             {   
-            
                 $goodsID[] = $v->sku->good->id;
+                $skuId[] = $v->sku_id;
             }
             $temp['goods_id'] = $goodsID;
+            $temp['sku_id'] = $skuId;
             $goodsInfo[] = $temp;
         }
         //判断商品是否已经评价过了
-
-        $goods = [];
+        // dd($allGoods);
+        $goodsCmtNo = [];//没评论过的订单信息
+        $goodsCmtYes = [];//评论过的订单信息        
         foreach ($goodsInfo as $k => $v) {
+            //评论中是否存在订单号,商品id相同的 存在就是评价过的
             $comment = Comment::where('good_id',$v['goods_id'])->where("useless",'<>',$v['order_num'])->get();
-            
+            if(!empty($comment)){
+                $goodsCmtNo[] = $v;
+            }else{
+                $goodsCmtYes[] = $v;
+            }
 
-            // $goods = array_merge($goods,$comment);
         }
-        dd($goods);
-        
 
-        return view('home.user.comment');
+        //获取评论过的商品数据
+        $goodsYes = [];
+        foreach($goodsCmtYes as $k=>$v){
+                
+            foreach($v['sku_id'] as $key=>$val){
+                $goodsYes[] = Sku::find($val);
+            }
+        }
+        //获取未评论过的商品数据
+        $goodsNo = [];
+        foreach($goodsCmtNo as $k=>$v){
+            foreach($v['sku_id'] as $key=>$val){
+                
+                $goodsNo[] = Sku::find($val);
+            }
+        }
+        return view('home.user.comment',[
+            'request'=>$request,
+            'goodsNo'=>$goodsNo,
+            'goodsYes'=>$goodsYes,
+            ]);
     }
     /**
      * 退出登录

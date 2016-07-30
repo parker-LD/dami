@@ -98,21 +98,56 @@
                             <div class="box-bd">
                                 <div class="xm-goods-list-wrap">
                                     <ul class="xm-goods-list clearfix">
+                                    @if($request->input('filter')==1||empty($request->input('filter')))
+                                        @if(empty($goodsNo))
+                                            <li>
+                                            暂无数据
+                                            </li>
+                                        @else
+                                        @foreach($goodsNo as $k=>$v)
                                         <li class="xm-goods-item">
                                             <div class="figure figure-img">
-                                                <a href="//item.mi.com/1161000021.html" target="_blank">
-                                                    <img src="//i1.mifile.cn/a1/T1QxKvBgCv1RXrhCrK!200x200.jpg" />
+                                                <a href="/detail?id{{$v->good_id}}" target="_blank">
+                                                    <img src="{{$v->img}}" />
                                                 </a>
                                             </div>
                                             <h3 class="title">
-                                                <a href="//item.mi.com/1161000021.html">小米短袖T恤 轻松米兔</a>
+                                                <a href="/detail?id{{$v->good_id}}">{{$v->title}}</a>
                                             </h3>
-                                            <p class="price">39元</p>
-                                            <p class="rank">4273人评价</p>
+                                            <p class="price">{{$v->price}}元</p>
+                                            <p class="rank">{{$v->good->comments()->count()}}人评价</p>
                                             <div class="actions">
                                                 <a class="btn btn-primary btn-small J_btnComment" data-gid="2161000055" href="http://order.mi.com/comment/commentAdd/gid/2161000055">去评价</a>
                                             </div>
                                         </li>
+                                        @endforeach
+                                        @endif
+                                    @endif
+                                    @if($request->input('filter')==2)
+                                        @if(empty($goodsYes))
+                                            <li>
+                                            暂无数据
+                                            </li>
+                                        @else
+                                        @foreach($goodsYes as $k=>$v)
+                                        <li class="xm-goods-item">
+                                            <div class="figure figure-img">
+                                                <a href="/detail?id{{$v->good_id}}" target="_blank">
+                                                    <img src="{{$v->img}}" />
+                                                </a>
+                                            </div>
+                                            <h3 class="title">
+                                                <a href="/detail?id{{$v->good_id}}">{{$v->title}}</a>
+                                            </h3>
+                                            <p class="price">{{$v->price}}元</p>
+                                            <p class="rank">{{$v->good->comments()->count()}}人评价</p>
+                                            <div class="actions">
+                                                <a class="btn btn-primary btn-small J_btnComment" data-gid="2161000055" href="http://order.mi.com/comment/commentAdd/gid/2161000055">去评价</a>
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                        @endif
+                                    @endif
                                     </ul>
                                 </div>
                             </div>
