@@ -386,6 +386,7 @@
         $.ajax({
 
             type: "get",
+            dataType:'json',
             url:"/cart/ajaxaddcart",
             data:$('#yourformid').serialize(),// 你的formid
             async: false,

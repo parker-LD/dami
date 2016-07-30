@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff06546f-41e9-4139-901e-4a96b463644f" name="默认的" comment="'cs'">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/CartController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/CartController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/detail.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/detail.blade.php" />
     </list>
     <ignored path="5.1纯净版.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +36,8 @@
       <file leaf-file-name="detail.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="407" column="21" selection-start-line="407" selection-start-column="21" selection-end-line="407" selection-end-column="21" />
+            <state relative-caret-position="270">
+              <caret line="392" column="31" selection-start-line="392" selection-start-column="31" selection-end-line="392" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -115,8 +117,8 @@
         <option value="$PROJECT_DIR$/resources/views/home/list_search.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Home/CommentController.php" />
         <option value="$PROJECT_DIR$/resources/views/home/comment.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Home/CartController.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -464,12 +466,12 @@
       <workItem from="1469799316983" duration="378000" />
       <workItem from="1469805988758" duration="537000" />
       <workItem from="1469841665707" duration="11426000" />
-      <workItem from="1469863481522" duration="14639000" />
+      <workItem from="1469863481522" duration="14690000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148152000" />
+    <option name="totallyTimeSpent" value="148203000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -481,7 +483,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="0" width="1353" height="768" extended-state="1" />
+    <frame x="12" y="0" width="1353" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -923,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="407" column="21" selection-start-line="407" selection-start-column="21" selection-end-line="407" selection-end-column="21" />
+        <state relative-caret-position="270">
+          <caret line="392" column="31" selection-start-line="392" selection-start-column="31" selection-end-line="392" selection-end-column="31" />
           <folding />
         </state>
       </provider>
