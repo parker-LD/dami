@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff06546f-41e9-4139-901e-4a96b463644f" name="默认的" comment="'cs'">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/home/CommentController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/home/CommentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/home/ListController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/home/ListController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/home/LoginController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/home/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/homes/common/css/login.css" afterPath="$PROJECT_DIR$/public/homes/common/css/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/homes/common/css/style.css" afterPath="$PROJECT_DIR$/public/homes/common/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/comment.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/comment.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/detail.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/detail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/list.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/list_search.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/list_search.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/login.blade.php" />
     </list>
     <ignored path="5.1纯净版.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,22 +41,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ListController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/home/ListController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-566">
+            <state relative-caret-position="-456">
               <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="detail.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1172">
-              <caret line="159" column="158" selection-start-line="159" selection-start-column="158" selection-end-line="159" selection-end-column="158" />
-              <folding />
+            <state relative-caret-position="292">
+              <caret line="98" column="39" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#dd#2;n#dl#0;n#dl#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +127,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/home/CommentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/admin/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/home/comment.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/home/ListController.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -499,12 +489,12 @@
       <workItem from="1469788986353" duration="3523000" />
       <workItem from="1469799316983" duration="378000" />
       <workItem from="1469805988758" duration="537000" />
-      <workItem from="1469841665707" duration="10774000" />
+      <workItem from="1469841665707" duration="11356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132861000" />
+    <option name="totallyTimeSpent" value="133443000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -516,11 +506,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="0" width="1382" height="746" extended-state="1" />
-    <editor active="false" />
+    <frame x="3" y="0" width="1382" height="746" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2185129" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2185129" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -924,19 +914,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/detail.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/home/ListController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1172">
-          <caret line="159" column="158" selection-start-line="159" selection-start-column="158" selection-end-line="159" selection-end-column="158" />
+        <state relative-caret-position="-456">
+          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/home/ListController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/home/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-566">
-          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="292">
+          <caret line="98" column="39" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#dd#2;n#dl#0;n#dl#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
