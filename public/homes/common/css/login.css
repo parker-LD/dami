@@ -501,9 +501,7 @@ input::-ms-reveal {
 	*background-image: url("images/checkbox.png")
 }
 
-.ta-qq,.ta-weibo,.ta-alipay,.ta-facebook,.error-ico {
-	background-image: url("/homes/common/images/sprite_all_82.png")
-}
+
 
 .has_third .ta-alipay {
 	display: none

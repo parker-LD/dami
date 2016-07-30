@@ -155,10 +155,9 @@
     <div class="goods-detail-nav" id="goodsDetail">
         <div class="container">
             <ul class="detail-list J_detailNav J_originNav">
-                <li class="current detail-nav"> <a data-href="#goodsDesc" data-index="0" class="J_scrollHref" data-stat-id="2f27371406a047cd" onclick="_msq.push(['trackEvent', '3c88c18dba275d94-2f27371406a047cd', '', 'pcpid']);">详情描述</a> </li>
-                <li class="detail-nav"> <a data-href="#goodsParam" data-index="1" class="J_scrollHref" data-stat-id="bbde2caff4f4853c" onclick="_msq.push(['trackEvent', '3c88c18dba275d94-bbde2caff4f4853c', '', 'pcpid']);">规格参数</a> </li>
-                <li class="detail-nav"> <a data-href="#goodsComment" data-index="2" class="J_scrollHref" data-stat-id="158b28b83a4cca1a" onclick="_msq.push(['trackEvent', '3c88c18dba275d94-158b28b83a4cca1a', '', 'pcpid']);">评价晒单 <i>(3090)</i></a> </li>
-                <li class="last detail-nav"> <a data-href="#goodsFaq" data-index="3" class="J_scrollHref" data-stat-id="5f97da139fea8b64" onclick="_msq.push(['trackEvent', '3c88c18dba275d94-5f97da139fea8b64', '', 'pcpid']);">商品提问 <i>(12)</i></a> </li>
+                <li class="current detail-nav"> <a data-href="#goodsDesc" data-index="0" class="J_scrollHref" data-stat-id="2f27371406a047cd" >详情描述</a> </li>
+                <li class="detail-nav"> <a data-href="#goodsParam" data-index="1" class="J_scrollHref" data-stat-id="bbde2caff4f4853c" href="#info">规格参数</a> </li>
+                <li class="detail-nav"> <a data-href="#goodsComment" data-index="2" class="J_scrollHref" data-stat-id="158b28b83a4cca1a" href="#comment">评价晒单 </a> </li>
             </ul>
         </div>
     </div>
@@ -175,7 +174,7 @@
     <div class="goods-detail-nav-name-block J_itemBox" id="goodsParam">
         <div class="container main-block">
             <div class="border-line"></div>
-            <h2 class="nav-name">规格参数</h2>
+            <h2 class="nav-name" name="info" id="info">规格参数</h2>
         </div>
     </div>
 
@@ -185,17 +184,23 @@
     <style>
         .table tr,td{
             border: 1px solid #e0e0e0;
+            height: 80px;
             text-align: center;
             width: 400px;
         }
     </style>
     @foreach($good->info as $attr => $info)
     <div class="goods-detail-param  J_itemBox hidden" num="{{$attr}}">
+
         <div class="container table" >
-           {!! $info !!}
+
+
+            {!! $info !!}
         </div>
     </div>
     @endforeach
+
+
     <!--规格结束-->
 
     <div class="goods-detail-nav-name-block J_itemBox" id="goodsComment">
@@ -276,9 +281,9 @@
                             @foreach($good->comments as $k=>$comment)
                             <!--******评价********-->
                             <li class="item-rainbow-1" data-id="134117576">
-                                {{--<div class="user-image">--}}
-                                    {{--<img src="{{$comment->user->pic}}" alt="" />--}}
-                                {{--</div>--}}
+                                <div class="user-image">
+                                    <img src="{{$comment->user->pic}}" alt="" />
+                                </div>
                                 <div class="user-emoj">
                                     喜欢
                                     <i class="iconfont"></i>
@@ -314,7 +319,7 @@
                         </ul>
                     </div>
                     <div class="span6 goods-detail-comment-timeline">
-                        <h3 class="comment-name">最新评价</h3>
+                        <h3 class="comment-name" id="comment" name="comment">最新评价</h3>
                         <ul class="comment-timeline-list" id="J_timelineComment">
 
                         @foreach($good->comments()->orderBy('created_at','desc')->take('2')->get() as $k=>$comment)
@@ -351,7 +356,8 @@
         $(this).siblings().attr('class','attr');
         $(this).attr('class','attr select');
         $('[name="hidden"]').attr('class','hidden');
-        $('[num="'+attr+'"]').attr('class','');
+        $('[num="'+attr+'"]').attr('class','').siblings('[num]').attr('class','hidden');
+
     });
     $('[name="color"]').click(function () {
         var color = $(this).html();

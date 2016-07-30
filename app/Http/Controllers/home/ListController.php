@@ -14,7 +14,7 @@ class ListController extends Controller
 
     public function detail(Request $request)
     {
-
+//        dd($request->only('id'));
 
         $good = Good::find($request->only('id')['id']);
 
@@ -35,7 +35,7 @@ class ListController extends Controller
         $i = 0;
         foreach ($attr as $key => $value) {
 
-            $info[] = Sku::where('attr',$value)->first()->info;
+            $info[$value] = Sku::where('attr',$value)->first()->info;
 
             foreach (Sku::where('attr',$value)->get() as $k => $v ){
 
@@ -47,7 +47,7 @@ class ListController extends Controller
         $good->attr = $color;
         $good->info = $info;
         
-
+//        dd($good->info);
         return view('home.detail',['good'=>$good]);
     }
     
@@ -55,6 +55,9 @@ class ListController extends Controller
     {
 //        $data = $request->only('id');
 //        $goods = Cate::find($data['id'])->goods;
+        
+        
+        
 
         $cates = Cate::where('pid','1')->get();
 

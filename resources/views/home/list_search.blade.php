@@ -40,7 +40,7 @@
                 <dt>分类：</dt>
                 <dd class="active">全部</dd>
                 @foreach($cates as $cate)
-                    <dd><a href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-10" data-stat-id="b120dec55d40e599" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-b120dec55d40e599&#39;, &#39;//search.mi.com/search_手机-10&#39;, &#39;pcpid&#39;]);">{{$cate->name}}</a></dd>
+                    <dd><a href="?id={{$cate->id}}" data-stat-id="b120dec55d40e599" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-b120dec55d40e599&#39;, &#39;//search.mi.com/search_手机-10&#39;, &#39;pcpid&#39;]);">{{$cate->name}}</a></dd>
                 @endforeach
             </dl>
             <a class="more J_filterToggle" href="javascript: void(0);" data-stat-id="3306e9b581810c0b" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-3306e9b581810c0b&#39;, &#39;javascript:void(0);&#39;, &#39;pcpid&#39;]);">更多<i class="iconfont"></i></a>
@@ -55,7 +55,7 @@
                 <dd class="active">全部</dd>
 
                 @foreach($search_goods as $search_good)
-                    <dd><a href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-0-54321" data-stat-id="4e1a960f60c0ad53" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-4e1a960f60c0ad53&#39;, &#39;//search.mi.com/search_手机-0-54321&#39;, &#39;pcpid&#39;]);">{{$search_good->title}}</a></dd>
+                    <dd><a href="/detail?id={{$search_good->id}}" data-stat-id="4e1a960f60c0ad53" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-4e1a960f60c0ad53&#39;, &#39;//search.mi.com/search_手机-0-54321&#39;, &#39;pcpid&#39;]);">{{$search_good->title}}</a></dd>
                 @endforeach
 
             </dl>
@@ -70,7 +70,7 @@
                 <dd class="active">部分</dd>
                 @foreach($goods as $good)
                     <dd>
-                        <a href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-0-0-1" data-stat-id="c6199f21493cb057" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-c6199f21493cb057&#39;, &#39;//search.mi.com/search_手机-0-0-1&#39;, &#39;pcpid&#39;]);">{{$good->title}}</a>
+                        <a href="/detail?id={{$good->id}}" data-stat-id="c6199f21493cb057" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-c6199f21493cb057&#39;, &#39;//search.mi.com/search_手机-0-0-1&#39;, &#39;pcpid&#39;]);">{{$good->title}}</a>
                     </dd>
                 @endforeach
             </dl>

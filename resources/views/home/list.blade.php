@@ -8,7 +8,6 @@
     <meta name="Description" content="" />
     <title>小米官网小米手机、红米手机、小米电视官方正品专卖网站</title>
     <link rel="shortcut icon" href="/homes/common/img/favicon.ico" />
-    <link rel="icon" href="/homes/common/img/animated_favicon.gif" type="image/gif" />
     <link href="/homes/common/css/style.css" rel="stylesheet" type="text/css" />
     <link href="/homes/common/css/category.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/homes/common/js/jquery-1.9.1.min.js"></script>

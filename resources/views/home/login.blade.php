@@ -54,7 +54,7 @@
                             @endif
                         </div>
                         <div class="enter-area">
-                            <input name="username" type="text" class="enter-item first-enter-item" placeholder="用户名">
+                            <input name="username" type="text" value="{{old('username')}}" class="enter-item first-enter-item" placeholder="用户名">
                             <i class="placeholder">用户名</i>
 
                         </div>

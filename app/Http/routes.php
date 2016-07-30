@@ -20,7 +20,18 @@ Event::listen('illuminate.query',function($query){
 //     var_dump($query);
 });
 
+
+Route::group(['middleware'=>'home'],function () {
+
+
+
+    
+});
+
+
+
 Route::controller('/login','home\LoginController');
+
 Route::group(['namespace'=>'home','middleware'=>'home'],function () {
     Route::get('/list', 'ListController@list_');
     Route::get('/list_search', 'ListController@list_Search');

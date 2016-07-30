@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class CommentController extends Controller
 {
@@ -20,6 +21,9 @@ class CommentController extends Controller
         //测试!
         $sku = Sku::find(2);
 
+
+        
+
         return view('\home\comment',['sku'=>$sku]);
     }
 
@@ -27,12 +31,13 @@ class CommentController extends Controller
     {
         $data = $request->all();
         $comment = new Comment();
-        $comment->star = $data['score'];
+        $comment->star = round($data['score']*10)/10;
         $comment->content = $data['content'];
         $comment->good_id = $data['good_id'];
-//        $comment->user = session('uid');
+        $comment->user_id = session('uid');
         $comment->save();
-        dd('666');
 
+
+        return redirect('/detail?id='.$data['good_id'].'&&#comment');
     }
 }

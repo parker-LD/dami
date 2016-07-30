@@ -103,7 +103,9 @@ class UserController extends Controller
         $defaultpic = config('app.upload_image_dir').'user.png';
 
         if($dbpic != $defaultpic){
-            unlink(realpath($dbpic));
+            if(file_exists(realpath($dbpic))) {
+                unlink(realpath($dbpic));
+            }
         }
     }
 

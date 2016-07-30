@@ -103,6 +103,7 @@
     $(function() {
 
 
+
         $.fn.raty.defaults.path = '/homes/common/lib/img';
 
         $('#precision-demo').raty({

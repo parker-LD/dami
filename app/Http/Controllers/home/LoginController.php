@@ -26,6 +26,8 @@ class LoginController extends Controller
         $password = $request->input('password');
         $Vcode = $request->input('Vcode');
 
+
+
         if(session('Vcode')!=$Vcode){
             return back()->with('error','验证码有误!');
         }
