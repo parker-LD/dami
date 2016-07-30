@@ -66,14 +66,14 @@
                     </a>
                     <ul class="user-menu" style="display: none;">
                         <li>
-                            <a rel="nofollow" href="//my.mi.com/portal">个人中心</a>
+                            <a rel="nofollow" href="/portal">个人中心</a>
                         </li>
                         <li>
-                            <a rel="nofollow" href="http://order.mi.com/user/comment" target="_blank">评价晒单</a>
+                            <a rel="nofollow" href="/user/comment" target="_blank">评价晒单</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a rel="nofollow" href="http://order.mi.com/user/favorite" target="_blank">我的喜欢</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a rel="nofollow" href="/user/logout">退出登录</a>
                         </li>

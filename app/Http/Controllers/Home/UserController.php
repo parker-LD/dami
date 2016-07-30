@@ -204,6 +204,7 @@ class UserController extends Controller
         foreach($orders as $key => $value){
             $temp = [];
             $temp['order_num'] = $value->order_num;
+            $temp['order_id'] = $value->id;
             $goodsID = []; 
             $skuId = [];
             foreach($value->orderGoods as $k=>$v)
@@ -216,13 +217,14 @@ class UserController extends Controller
             $goodsInfo[] = $temp;
         }
         //判断商品是否已经评价过了
-        // dd($allGoods);
+        // dd($goodsInfo);
         $goodsCmtNo = [];//没评论过的订单信息
         $goodsCmtYes = [];//评论过的订单信息        
         foreach ($goodsInfo as $k => $v) {
             //评论中是否存在订单号,商品id相同的 存在就是评价过的
-            $comment = Comment::where('good_id',$v['goods_id'])->where("useless",'<>',$v['order_num'])->get();
-            if(!empty($comment)){
+            $comment = Comment::whereIn('good_id',$v['goods_id'])->where("useless",'=',$v['order_id'])->where('user_id',session('uid'))->get();
+
+            if(empty($comment[0])){
                 $goodsCmtNo[] = $v;
             }else{
                 $goodsCmtYes[] = $v;
@@ -242,14 +244,22 @@ class UserController extends Controller
         $goodsNo = [];
         foreach($goodsCmtNo as $k=>$v){
             foreach($v['sku_id'] as $key=>$val){
-                
-                $goodsNo[] = Sku::find($val);
+                $sku = Sku::find($val);
+                $sku['order_id'] = $v['order_id'];
+                $goodsNo[] = $sku;
+                // $goodsNo[$k]['item'][] = Sku::find($val);
+                // $goodsNo[$k]['order_id'] = $v['order_id'];
+
             }
         }
+        // dd($goodsCmtNo);
+        // dd($goodsCmtYes);
         return view('home.user.comment',[
             'request'=>$request,
             'goodsNo'=>$goodsNo,
+            'goodsCmtNo'=>$goodsNo,
             'goodsYes'=>$goodsYes,
+            'goodsCmtYes'=>$goodsYes,
             ]);
     }
     /**

@@ -20,15 +20,19 @@ Event::listen('illuminate.query',function($query){
 //     var_dump($query);
 });
 
+
+
 //迪迪
-Route::group(['middleware'=>'home'],function () {
+
     Route::get('/', 'Home\IndexController@index');
-//定义前台help路由
+    //定义前台help路由
     Route::controller('/help','Home\HelpController');
-//定义购物车路由
+    //定义购物车路由
     Route::get('/cart','Home\CartController@index');
     Route::get('/cart/ajaxaddcart','Home\CartController@ajaxAddCart');
     Route::controller('/cart','Home\CartController');
+
+Route::group(['middleware'=>'home'],function () {
 //确认订单的路由
     Route::get('/order/confirm','Home\OrderController@confirm');
     Route::get('/order/changeStatus','Home\OrderController@changeStatus');
@@ -37,18 +41,22 @@ Route::group(['middleware'=>'home'],function () {
     Route::controller('/address','Home\AddressController');
 //定义个人中心路由
     Route::controller('/user','Home\UserController');
-
-    
 });
 
 
 
 Route::controller('/login','Home\LoginController');
-Route::group(['namespace'=>'Home','middleware'=>'home'],function () {
+
+
+Route::group(['namespace'=>'Home'],function () {
     Route::get('/list', 'ListController@list_');
     Route::get('/list_search', 'ListController@list_Search');
     Route::get('/detail', 'ListController@detail');
     Route::get('/comment', 'CommentController@comment');
+
+});
+
+Route::group(['namespace'=>'Home','middleware'=>'home'],function () {
     Route::post('/comment/insert', 'CommentController@insert');
 });
 Route::controller('/admin/login','admin\LoginController');

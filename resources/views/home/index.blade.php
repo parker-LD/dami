@@ -184,7 +184,7 @@
                                 @foreach($smarty as $key=>$v)
                                 <li class="brick-item brick-item-m brick-item-m-2" data-gid="1161200059">
                                     <div class="figure figure-img">
-                                        <a href="{{$v->good->id}}">
+                                        <a href="/detail?id={{$v->good->id}}">
                                             <img src="{{$v->img}}" width="160" height="160" alt="{{$v->title}}"></a>
                                     </div>
                                     <h3 class="title">

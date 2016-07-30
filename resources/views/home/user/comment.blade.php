@@ -86,11 +86,11 @@
                                 <h1 class="title">商品评价</h1>
                                 <div class="more clearfix">
                                     <ul class="filter-list J_addrType">
-                                        <li class="first active">
-                                            <a href="/user/comment?filter=1">待评价商品（4）</a>
+                                        <li class="first @if($request->input('filter')==1) active @endif">
+                                            <a href="/user/comment?filter=1">待评价商品（{{count($goodsNo)}}）</a>
                                         </li>
-                                        <li>
-                                            <a href="/user/comment?filter=2">已评价商品（1）</a>
+                                        <li class=" @if($request->input('filter')==2) active @endif">
+                                            <a href="/user/comment?filter=2">已评价商品（{{count($goodsYes)}}）</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -107,7 +107,7 @@
                                         @foreach($goodsNo as $k=>$v)
                                         <li class="xm-goods-item">
                                             <div class="figure figure-img">
-                                                <a href="/detail?id{{$v->good_id}}" target="_blank">
+                                                <a href="/detail?id={{$v->good_id}}" target="_blank">
                                                     <img src="{{$v->img}}" />
                                                 </a>
                                             </div>
@@ -117,7 +117,7 @@
                                             <p class="price">{{$v->price}}元</p>
                                             <p class="rank">{{$v->good->comments()->count()}}人评价</p>
                                             <div class="actions">
-                                                <a class="btn btn-primary btn-small J_btnComment" data-gid="2161000055" href="http://order.mi.com/comment/commentAdd/gid/2161000055">去评价</a>
+                                                <a class="btn btn-primary btn-small J_btnComment" data-gid="2161000055" href="/comment?id={{$v->good_id}}&order_id={{$v->order_id}}">去评价</a>
                                             </div>
                                         </li>
                                         @endforeach
@@ -141,9 +141,6 @@
                                             </h3>
                                             <p class="price">{{$v->price}}元</p>
                                             <p class="rank">{{$v->good->comments()->count()}}人评价</p>
-                                            <div class="actions">
-                                                <a class="btn btn-primary btn-small J_btnComment" data-gid="2161000055" href="http://order.mi.com/comment/commentAdd/gid/2161000055">去评价</a>
-                                            </div>
                                         </li>
                                         @endforeach
                                         @endif

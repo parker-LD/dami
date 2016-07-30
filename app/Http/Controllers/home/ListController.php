@@ -18,6 +18,10 @@ class ListController extends Controller
 
         $good = Good::find($request->only('id')['id']);
 
+        if(!$good){
+            echo '<script>alert("暂无数据");window.location.href="/";</script>';
+            
+        }
         $good->img = explode(',',$good->img);
 
         $skus = $good->skus ;

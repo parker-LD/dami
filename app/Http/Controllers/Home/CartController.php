@@ -458,6 +458,7 @@ class CartController extends Controller
      * 加入购物车操作
      */
     public function ajaxAddCart(Request $request){
+
         //判断是否登录
         $uid = session('uid');
         $sku = Sku::where('good_id',$request->input('good_id'))->where('price',$request->input('sku_price'))->where('color',$request->input('sku_color'))->where('attr',$request->input('sku_attr'))->first();
@@ -466,7 +467,7 @@ class CartController extends Controller
         if(empty($uid)){
             //先判断是否存在
             if(empty(session('cart')[$sku->id])){
-         
+//         dd(11);
                 $request->session()->push('cart.'.($sku->id), $sku->id);//0 代表 id
                 $request->session()->push('cart.'.($sku->id), $request->input('num'));//1 代表 num
                 $request->session()->push('cart.'.($sku->id), $sku->good_id);//2 代表 gid good_id
@@ -478,6 +479,7 @@ class CartController extends Controller
                 die;
                 
             }else{
+//                dd(444);
                 //修改session值
                 $num = session('cart')[$sku->id][1];
                 $request->session()->forget('cart.'.$sku->id);
@@ -499,7 +501,9 @@ class CartController extends Controller
 
         //dd($sku);
         //已经登录 将数据插入到数据库中
+//        dd($uid);
         if(!empty($uid)){
+//            dd(1);
             //查看购物车数据中是否存在该商品
             $cart = Cart::where('user_id',$uid)->where('sku_id',$sku->id)->first();
             //处理不存在该商品的情况
