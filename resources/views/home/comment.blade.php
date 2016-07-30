@@ -92,6 +92,7 @@
     {{csrf_field()}}
     <div class="section-bar clearfix">
         <div class="fr">
+            <input type="hidden" name="order_id" value="{{$order_id}}">
             <button href="" class="btn btn-primary" id="J_checkoutToPay" data-stat-id="4773f7ffc10003b8" >发表评论
             </button>
         </div>

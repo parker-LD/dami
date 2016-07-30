@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<!-- saved from url=(0046)http://search.mi.com/search_%E6%89%8B%E6%9C%BA -->
-<html lang="zh-CN" xml:lang="zh-CN">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+@extends('layout.index')
+@section('css')
     <script type="text/javascript" async="" src="http://a.stat.xiaomi.com/js/mstr.js?mstpid=a5543b161410aa8b-3306e9b581810c0b&amp;mid=&amp;phpsessid=&amp;mstuid=1469708547901_2895&amp;sessionId=1073614414&amp;muuid=&amp;mucid=&amp;mstprevpid=a5543b161410aa8b-3306e9b581810c0b&amp;lastsource=dami.com&amp;timestamp=1469723055285&amp;domain=.mi.com&amp;screen=1366*768&amp;language=zh-CN&amp;vendor=Google%20Inc.&amp;platform=Win32&amp;target=javascript%3Avoid(0)%3B&amp;prevtarget=javascript%3Avoid(0)%3B&amp;pid_loc=pcpid&amp;mstprev_pid_loc=pcpid&amp;domain_id=100&amp;pageid=a5543b161410aa8b&amp;curl=http%3A%2F%2Fsearch.mi.com%2Fsearch_%25E6%2589%258B%25E6%259C%25BA&amp;xmv=1469708547901_2895_1469721279109&amp;v=1.4.10&amp;vuuid=FBLQD4TR22D9FM9B"></script>
 
     <script type="text/javascript" async="" src="/homes/common/js/unjcV2.js"></script>
@@ -21,10 +17,9 @@
     <link rel="stylesheet" href="/homes/common/css/list.min.css">
 
     <script type="text/javascript">var _head_over_time = (new Date()).getTime();</script>
-</head>
-<body>
 
-
+@endsection
+@section('content')
 <!-- 面包屑 -->
 <div class="breadcrumbs">
     <div class="container">
@@ -131,13 +126,13 @@
                 @endforeach
 
             </div>
-            <div class="xm-pagenavi">
-                <span class="numbers first iconfont"></span><span class="numbers current">1</span><a class="numbers" href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-0-0-0-0-0-0-0-0-2" data-stat-id="4a821a9d8667b0e4" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-4a821a9d8667b0e4&#39;, &#39;//search.mi.com/search_手机-0-0-0-0-0-0-0-0-2&#39;, &#39;pcpid&#39;]);">2</a><a class="numbers" href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-0-0-0-0-0-0-0-0-3" data-stat-id="a18acbc49ea33ec4" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-a18acbc49ea33ec4&#39;, &#39;//search.mi.com/search_手机-0-0-0-0-0-0-0-0-3&#39;, &#39;pcpid&#39;]);">3</a><a class="numbers" href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-0-0-0-0-0-0-0-0-4" data-stat-id="bdbe6171d93393d3" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-bdbe6171d93393d3&#39;, &#39;//search.mi.com/search_手机-0-0-0-0-0-0-0-0-4&#39;, &#39;pcpid&#39;]);">4</a><a class="numbers" href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-0-0-0-0-0-0-0-0-5" data-stat-id="0acf2786235c2d98" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-0acf2786235c2d98&#39;, &#39;//search.mi.com/search_手机-0-0-0-0-0-0-0-0-5&#39;, &#39;pcpid&#39;]);">5</a><a class="numbers last iconfont" href="http://search.mi.com/search_%E6%89%8B%E6%9C%BA-0-0-0-0-0-0-0-0-2" data-stat-id="477bace837581101" onclick="_msq.push([&#39;trackEvent&#39;, &#39;a5543b161410aa8b-477bace837581101&#39;, &#39;//search.mi.com/search_手机-0-0-0-0-0-0-0-0-2&#39;, &#39;pcpid&#39;]);"></a>
-            </div>
+
         </div>
     </div>
 </div>
+@endsection
 
+@section('LDjs')
 <script src="/homes/common/js/base.min.js"></script>
 <script>
     (function() {
@@ -186,6 +181,4 @@
     $()
 
     </script>
-
-    </body>
-</html>
+@endsection

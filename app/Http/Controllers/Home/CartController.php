@@ -488,8 +488,7 @@ class CartController extends Controller
             
 
         }
-        echo '<pre>';
-        print_r(session('cart'));
+
 
         //已经登录 将数据插入到数据库中
         if(!empty($uid)){

@@ -50,16 +50,14 @@ class ListController extends Controller
 //        dd($good->info);
         return view('home.detail',['good'=>$good]);
     }
+
+
     
     public function list_(Request $request)
     {
-//        $data = $request->only('id');
-//        $goods = Cate::find($data['id'])->goods;
+        $data = $request->only('id');
         
-        
-        
-
-        $cates = Cate::where('pid','1')->get();
+        $cates = Cate::where('pid',$data)->get();
 
         $arr = [];
 
@@ -87,7 +85,7 @@ class ListController extends Controller
     {
         $data = $request->all();
 
-        /**测试**/ $data['kWord'] = '手机'; /**结束**/
+//        /**测试**/ $data['kWord'] = '手机'; /**结束**/
 
         $cates = Cate::where('pid',0)->get();
 

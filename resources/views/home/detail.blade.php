@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<!-- saved from url=(0045)http://item.mi.com/1161600007.html?cfrom=list -->
-<html lang="zh-CN" xml:lang="zh-CN">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+@extends('layout.index')
 
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <script src="/homes/common/js/jquery-1.9.1.min.js"></script>
+@section('css')
     <title>小米商城</title>
     <style type="text/css">
         img{
@@ -44,12 +39,16 @@
             border-color: #ff6700;
         }
     </style>
+    <script src="/homes/common/js/jquery-1.9.1.min.js"></script>
     <link rel="shortcut icon" href="http://s01.mifile.cn/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="http://s01.mifile.cn/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/homes/common/css/base.min.css" />
     <link rel="stylesheet" type="text/css" href="/homes/common/css/goods-detail.min.css" />
-</head>
-<body>
+@endsection
+
+
+
+@section('content')
 <!-- E 面包屑 -->
 <div class="goods-detail">
     <div class="goods-detail-info  clearfix J_goodsDetail">
@@ -76,7 +75,7 @@
                 </div>
                 <div class="span7 goods-info-rightbox">
                     <div class="goods-info-leftborder"></div>
-                    <form action="##" method="get">
+                    <form action="##" method="get" id="yourformid">
                         <dl class="goods-info-box ">
                         <dt class="goods-info-head">
                         <dl id="J_goodsInfoBlock">
@@ -132,6 +131,7 @@
                                 <input type="hidden" name="good_id" value="{{$good->id}}">
                                 <input type="hidden" name="sku_color" value="">
                                 <input type="hidden" name="sku_price" value="">
+                                <input type="hidden" name="num" value="1">
                                 <dd class="goods-info-head-cart" id="goodsDetailBtnBox">
                                     <button disabled="disabled" href="http://cart.mi.com/cart/add/2161600004" id="goodsDetailAddCartBtn" class="btn  btn-primary goods-add-cart-btn" data-disabled="false" data-gid="2161600004" data-package="0" data-stat-id="e7ed8543f67c5bd7" > <i class="iconfont"></i>加入购物车 </button>
                                     <a id="goodsDetailCollectBtn" data-isfavorite="false" class=" btn btn-gray  goods-collect-btn " data-stat-id="9d1c11913f946c7f" > <i class="iconfont default"></i> <i class="iconfont red"></i><i class="iconfont red J_redCopy"></i>喜欢 </a>
@@ -163,8 +163,8 @@
     </div>
     <div class="full-screen-border"></div>
     <div class="goods-detail-desc J_itemBox" id="goodsDesc">
-        <div class="container" style="width: 1366px;">
-            <div class="shape-container" style="width: 1366px;">
+        <div class="container" >
+            <div class="shape-container" >
 
                     {!! $good->content !!}
 
@@ -199,7 +199,6 @@
         </div>
     </div>
     @endforeach
-
 
     <!--规格结束-->
 
@@ -343,7 +342,16 @@
     </div>
 </div>
 </body>
-</html>
+@endsection
+@section('js')
+
+<script src="/data/indexNav.js"></script>
+<script src="/data/indexData.js"></script>
+
+<script src="/homes/common/myjs/common.js"></script>
+
+@show
+@section('LDjs')
 <script type="text/javascript">
     $('[name="attr"]').click(function () {
         var attr = $(this).attr('title');
@@ -371,4 +379,33 @@
         return false;
     });
 
+    $('#goodsDetailAddCartBtn').click(function () {
+
+        console.log($('#yourformid').serialize());
+//        return false;
+        $.ajax({
+
+            type: "get",
+            url:"/cart/ajaxaddcart",
+            data:$('#yourformid').serialize(),// 你的formid
+            async: false,
+            error: function() {
+                alert("系统错误请稍后再试!");
+            },
+            success: function(data) {
+                if(data==0){
+                    var r=confirm("添加成功,去购物车结算");
+                    if (r==true)
+                    {
+                        window.location.href="/cart";
+                    }
+
+                }else{
+                    alert('您的商品被江洋大盗劫走了,我们会很快抓住他的,请您稍后再试!');
+                }
+            }
+        });
+        return false;
+    });
 </script>
+@endsection

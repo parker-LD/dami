@@ -72,13 +72,12 @@
                 </ul>
             </div>
             <div class="header-search">
-                <form id="J_searchForm" class="search-form clearfix" action="//search.mi.com/search" method="get">
+                <form id="J_searchForm" class="search-form clearfix" action="/list_search" method="get">
                     <label for="search" class="hide">站内搜索</label>
-                    <input class="search-text" type="search" id="search" name="keyword" autocomplete="off" />
+                    <input class="search-text" type="search" id="search" name="kWord" autocomplete="off" />
                     <input type="submit" class="search-btn iconfont" value="&#xe616;" />
                     <div class="search-hot-words">
-                        <a href="//search.mi.com/search_%E5%B0%8F%E7%B1%B3%E6%89%8B%E6%9C%BA5">小米手机5</a>
-                        <a href="//www.mi.com/shouhuan2/">小米手环 2</a>
+                        <a href="/list_search?kWord=小米手机5">小米手机5</a>
                     </div>
                 </form>
             </div>
@@ -237,7 +236,8 @@
     <script src="/homes/common/myjs/common.js"></script>
     <script src="/homes/common/myjs/index.js"></script>
     @show
-
+    @section('LDjs')
+    @show
 </body>
 </html>
    

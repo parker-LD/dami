@@ -14,17 +14,16 @@ class CommentController extends Controller
 {
     public function comment(Request $request)
     {
-//        $data = $request->all();
+        $data = $request->all();
 
-//        $sku = Sku::find($data['id']);
+        $sku = Sku::find($data['id']);
 
-        //测试!
-        $sku = Sku::find(2);
-
-
+//        //测试!
+//        $sku = Sku::find(2);
+//        
+        $order_id = $data['order_id'];
         
-
-        return view('\home\comment',['sku'=>$sku]);
+        return view('\home\comment',['sku'=>$sku,'order_id'=>$order_id]);
     }
 
     public function insert(Request $request)
@@ -34,6 +33,7 @@ class CommentController extends Controller
         $comment->star = round($data['score']*10)/10;
         $comment->content = $data['content'];
         $comment->good_id = $data['good_id'];
+        $comment->useless = $data['order_id'];
         $comment->user_id = session('uid');
         $comment->save();
 
