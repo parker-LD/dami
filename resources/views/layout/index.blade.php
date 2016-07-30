@@ -48,11 +48,37 @@
                     </div>
                 </div>
             </div>
+             <?php if(!session('uid')){?>
             <div class="topbar-info" id="J_userInfo">
                 <a  rel="nofollow" class="link" href="//order.mi.com/site/login" data-needlogin="true">登录</a>
                 <span class="sep">|</span>
                 <a  rel="nofollow" class="link" href="https://account.xiaomi.com/pass/register" >注册</a>
             </div>
+            <?php }else{ ?>
+            <div class="topbar-info" id="J_userInfo">
+                <span class="user">
+                    <a rel="nofollow" class="user-name" href="//my.mi.com/portal" target="_blank">
+                        <span class="name">李庆国</span> <i class="iconfont"></i>
+                    </a>
+                    <ul class="user-menu" style="display: none;">
+                        <li>
+                            <a rel="nofollow" href="//my.mi.com/portal">个人中心</a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="http://order.mi.com/user/comment" target="_blank">评价晒单</a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="http://order.mi.com/user/favorite" target="_blank">我的喜欢</a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="/user/logout">退出登录</a>
+                        </li>
+                    </ul>
+                </span>
+                <span class="sep">|</span>
+                <a rel="nofollow" class="link link-order" href="/user/order/" target="_blank">我的订单</a>
+            </div>
+            <?php } ?>
         </div>
     </div>
     <div class="site-header">
