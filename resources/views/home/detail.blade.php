@@ -394,7 +394,8 @@
                 alert("系统错误请稍后再试!");
             },
             success: function(data) {
-                if(data==0){
+
+                if(data.status==0){
                     var r=confirm("添加成功,去购物车结算");
                     if (r==true)
                     {
