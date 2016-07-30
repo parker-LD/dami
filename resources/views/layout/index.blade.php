@@ -50,9 +50,9 @@
             </div>
              <?php if(!session('uid')){?>
             <div class="topbar-info" id="J_userInfo">
-                <a  rel="nofollow" class="link" href="//order.mi.com/site/login" data-needlogin="true">登录</a>
+                <a  rel="nofollow" class="link" href="/login" data-needlogin="true">登录</a>
                 <span class="sep">|</span>
-                <a  rel="nofollow" class="link" href="https://account.xiaomi.com/pass/register" >注册</a>
+                <a  rel="nofollow" class="link" href="/register" >注册</a>
             </div>
             <?php 
                 }else{ 

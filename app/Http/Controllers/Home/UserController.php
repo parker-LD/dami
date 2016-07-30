@@ -56,7 +56,7 @@ class UserController extends Controller
          $order = Order::findOrFail($id);
          $order->order_status = 3;
          if($order->save()){
-            return back()->with('info','确认收货成功');
+            return redirect('/user/comment?filter=1');
          }else{
             return back()->with('info','确认收货失败');
          }
@@ -70,7 +70,7 @@ class UserController extends Controller
 
         foreach ($orders as $key => $val){
             $status = $val->order_status;
-
+            // $str .= $status;
             if($status == 0){
                 $class = 'uc-order-item-pay';
                 $samaury = '<div class="order-summary">
@@ -117,7 +117,10 @@ class UserController extends Controller
                 $action ='
                         <td class="order-actions">
                             <!--<a class="btn btn-small btn-line-gray" href="user/orderView?id='.$val->id.'">订单详情</a>-->';
-                $action .= $status==2? '<a class="btn btn-small  btn-primary" href="/user/packin?id='.$val->id.'">确认收货</a>':'';           
+                $action .= $status==2? '<a class="btn btn-small  btn-primary" href="/user/packin?id='.$val->id.'">确认收货</a>':''; 
+                if($status==3){
+                    
+                }               
                 $action .='</td>';
             }
             $str .='<li class="uc-order-item '.$class.'">
