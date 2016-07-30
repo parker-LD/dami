@@ -472,6 +472,10 @@ class CartController extends Controller
                 $request->session()->push('cart.'.($sku->id), $sku->good_id);//2 代表 gid good_id
                 //保存修改过的session值
                 \Session()->save();
+                $this->data['status'] = 0;
+                $this->data['msg'] = 'ok';
+                echo json_encode($this->data);
+                die;
                 
             }else{
                 //修改session值
@@ -483,6 +487,10 @@ class CartController extends Controller
                 
                 //保存修改过的session值
                 \Session()->save();
+                $this->data['status'] = 0;
+                $this->data['msg'] = 'ok';
+                echo json_encode($this->data);
+                die;
 
             }
             

@@ -215,7 +215,7 @@ class UserController extends Controller
         foreach ($goodsInfo as $k => $v) {
             $comment = Comment::where('good_id',$v['goods_id'])->where("useless",'<>',$v['order_num'])->get()->toArray();
             foreach($comment as $key=>$val){
-                $k   
+                  
             }
             $goods = array_merge($goods,$comment);
         }
