@@ -184,4 +184,44 @@ class UserController extends Controller
         $address = Address::where('user_id',$uid)->get();
         return view('home.user.address');
     }
+
+     /**
+     * 显示个人中心评价页
+     */
+    public function getComment(Request $request)
+    {
+        //获取用户id
+        $uid = session('uid');
+        //获取用户已经确认收货或者订单完成却未评价的订单信息
+        $orders = Order::whereIn('order_status',[3,7])->where('user_id',$uid)->get();
+        //获取订单相关商品信息
+
+        $goodsInfo = [];
+        foreach($orders as $key => $value){
+            $temp = [];
+            $temp['order_num'] = $value->order_num;
+            $goodsID = []; 
+            foreach($value->orderGoods as $k=>$v)
+            {   
+            
+                $goodsID[] = $v->sku->good->id;
+            }
+            $temp['goods_id'] = $goodsID;
+            $goodsInfo[] = $temp;
+        }
+        //判断商品是否已经评价过了
+
+        $goods = [];
+        foreach ($goodsInfo as $k => $v) {
+            $comment = Comment::where('good_id',$v['goods_id'])->where("useless",'<>',$v['order_num'])->get()->toArray();
+            foreach($comment as $key=>$val){
+                $k   
+            }
+            $goods = array_merge($goods,$comment);
+        }
+
+        
+
+        return view('home.user.comment');
+    }
 }
