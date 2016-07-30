@@ -460,8 +460,8 @@ class CartController extends Controller
     public function ajaxAddCart(Request $request){
         //判断是否登录
         $uid = session('uid');
-        // $sku = Sku::where('good_id',$request->input('good_id'))->where('color',$request->input('color'))->where('attr',$request->input('attr'))->first();
-        $sku = Sku::find($request->input('id'));
+        $sku = Sku::where('good_id',$request->input('good_id'))->where('price',$request->input('sku_price'))->where('color',$request->input('sku_color'))->where('attr',$request->input('sku_attr'))->first();
+        //$sku = Sku::find($request->input('id'));
         //未登录情况将购物车信息加入到session中
         if(empty($uid)){
             //先判断是否存在
@@ -489,7 +489,7 @@ class CartController extends Controller
 
         }
 
-
+        //dd($sku);
         //已经登录 将数据插入到数据库中
         if(!empty($uid)){
             //查看购物车数据中是否存在该商品
