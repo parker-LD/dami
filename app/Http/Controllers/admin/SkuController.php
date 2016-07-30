@@ -121,8 +121,8 @@ class SkuController extends Controller
         $sku->info = $data['info'];
         $sku->stock = $data['stock'];
         $sku->status = 1;
-
-        if($request->hasFile('pic')){
+        
+        if($_FILES){
             self::updateFile();
             $sku->img = self::uploadFile();
         }
