@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Order;
-use App\Address;
+use App\User;
+use App\Comment;
 
 class UserController extends Controller
 {
@@ -213,15 +214,33 @@ class UserController extends Controller
 
         $goods = [];
         foreach ($goodsInfo as $k => $v) {
-            $comment = Comment::where('good_id',$v['goods_id'])->where("useless",'<>',$v['order_num'])->get()->toArray();
-            foreach($comment as $key=>$val){
-                  
-            }
-            $goods = array_merge($goods,$comment);
-        }
+            $comment = Comment::where('good_id',$v['goods_id'])->where("useless",'<>',$v['order_num'])->get();
+            
 
+            // $goods = array_merge($goods,$comment);
+        }
+        dd($goods);
         
 
         return view('home.user.comment');
     }
+    /**
+     * 退出登录
+     */
+    public function getLogout(Request $request)
+    {
+        session(['uid'=>null]);
+        $request->session()->flush();
+        return back();
+    }
+
+    /**
+     * 获取用户信息
+     */
+    public static function gainUsername()
+    {
+        $user = User::find(session('uid'));
+        return $user;
+    }
+
 }

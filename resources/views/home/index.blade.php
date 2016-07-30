@@ -188,7 +188,7 @@
                                             <img src="{{$v->img}}" width="160" height="160" alt="{{$v->title}}"></a>
                                     </div>
                                     <h3 class="title">
-                                        <a href="{{$v->good->id}}">{{$v->title}}</a>
+                                        <a href="/detail?id={{$v->good->id}}">{{$v->title}}</a>
                                     </h3>
                                     <p class="desc">{{$v->good->sub_title}}</p>
                                     <p class="price">

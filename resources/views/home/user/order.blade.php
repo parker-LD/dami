@@ -17,63 +17,64 @@
     <div class="container">
         <div class="row">
             <div class="span4">
-                <div class="uc-box uc-sub-box">
-                    <div class="uc-nav-box">
-                        <div class="box-hd">
-                            <h3 class="title">订单中心</h3>
+                    <div class="uc-box uc-sub-box">
+                        <div class="uc-nav-box">
+                            <div class="box-hd">
+                                <h3 class="title">订单中心</h3>
+                            </div>
+                            <div class="box-bd">
+                                <ul class="uc-nav-list">
+                                    <li class="active">
+                                        <a href="/user/order/">我的订单</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/user/comment/">评价晒单</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
-                        <div class="box-bd">
-                            <ul class="uc-nav-list J_navList">
-                                <li class="active"><a class="J_noRandom" href="//static.mi.com/order/">我的订单</a></li>
-                                <li><a href="http://service.order.mi.com/insurance/payServiceList">意外保服务</a></li>
-                                <li data-type="11"><a class="J_tuanList" href="//static.mi.com/order/?type=11">团购订单</a></li>
-                                <li><a href="//order.mi.com/user/comment?filter=1" data-count="comment" data-count-style="bracket">评价晒单</a></li>
-                                <li><a href="//order.mi.com/user/recharge">话费充值订单</a></li>
-                                <li><a href="http://huanxin.mi.com/order/list">以旧换新订单</a></li>
-                            </ul>
+                        <div class="uc-nav-box">
+                            <div class="box-hd">
+                                <h3 class="title">个人中心</h3>
+                            </div>
+                            <div class="box-bd">
+                                <ul class="uc-nav-list">
+                                    <li>
+                                        <a href="http://order.mi.com/portal?r=78436.1469842507">我的个人中心</a>
+                                    </li>
+                                   
+                                    <li>
+                                        <a href="http://order.mi.com/user/favorite?r=78436.1469842507">喜欢的商品</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/user/address">收货地址</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="uc-nav-box">
+                            <div class="box-hd">
+                                <h3 class="title">账户管理</h3>
+                            </div>
+                            <div class="box-bd">
+                                <ul class="uc-nav-list">
+                                    <li>
+                                        <a href="https://account.xiaomi.com/" target="_blank">个人信息</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://account.xiaomi.com/pass/auth/security/home#service=setPassword" target="_blank">修改密码</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://uvip.xiaomi.cn" target="_blank">社区VIP认证</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="uc-nav-box">
-                        <div class="box-hd">
-                            <h3 class="title">个人中心</h3>
-                        </div>
-                        <div class="box-bd">
-                            <ul id="J_orderNavList" class="uc-nav-list">
-                                <li><a href="//order.mi.com/portal">我的个人中心</a></li>
-                                <li><a href="//order.mi.com/cashAccount">现金账户</a></li>
-                                <li><a href="//order.mi.com/ecard/bind">小米礼品卡</a></li>
-                                <li><a href="//order.mi.com/huanxin/list">手机换新券</a></li>
-                                <li><a href="//order.mi.com/user/favorite">喜欢的商品</a></li>
-                                <li><a href="//order.mi.com/user/coupon">优惠券</a></li>
-                                <li><a href="//order.mi.com/user/address">收货地址</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="uc-nav-box">
-                        <div class="box-hd">
-                            <h3 class="title">售后服务</h3>
-                        </div>
-                        <div class="box-bd">
-                            <ul class="uc-nav-list">
-                                <li><a href="http://service.order.mi.com/record/list">服务记录</a></li>
-                                <li><a href="http://service.order.mi.com/apply/fill">申请服务</a></li>
-                                <li><a href="http://service.order.mi.com/user/compensate">领取快递报销</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="uc-nav-box">
-                        <div class="box-hd">
-                            <h3 class="title">账户管理</h3>
-                        </div>
-                        <div class="box-bd">
-                            <ul class="uc-nav-list">
-                                <li><a href="https://account.xiaomi.com/" target="_blank">个人信息</a></li>
-                                <li><a href="https://account.xiaomi.com/pass/auth/security/home#service=setPassword" target="_blank">修改密码</a></li>
-                                <li><a href="http://uvip.xiaomi.cn" target="_blank">社区VIP认证</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="span16">
                 <div class="uc-box uc-main-box">
@@ -152,4 +153,10 @@
     color:#fff;
 }
 </style>
+@endsection
+@section('js')
+<script src="/homes/common/myjs/jquery.min.js"></script>
+<script src="/data/indexNav.js"></script>
+<script src="/data/indexData.js"></script>
+<script src="/homes/common/myjs/common.js"></script>
 @endsection

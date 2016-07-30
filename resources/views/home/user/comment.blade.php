@@ -7,12 +7,11 @@
 @endsection
 
 @section('content')
-
     <div class="breadcrumbs">
         <div class="container">
             <a href='//www.mi.com/index.html'>首页</a>
             <span class="sep">&gt;</span>
-            <span>收货地址</span>
+            <span>商品评价</span>
         </div>
     </div>
 
@@ -84,57 +83,52 @@
                     <div class="uc-box uc-main-box">
                         <div class="uc-content-box">
                             <div class="box-hd">
-                                <h1 class="title">收货地址</h1>
+                                <h1 class="title">商品评价</h1>
+                                <div class="more clearfix">
+                                    <ul class="filter-list J_addrType">
+                                        <li class="first active">
+                                            <a href="/user/comment?filter=1">待评价商品（4）</a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/comment?filter=2">已评价商品（1）</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="box-bd">
-
-                                <div class="user-address-list J_addressList clearfix">
-                                    <div class="address-item address-item-new" data-type="" id="J_newAddress"> <i class="iconfont">&#xe609;</i>
-                                        添加新地址
-                                    </div>
-                                    @if(!empty($address))
-                                    @foreach($address as $k=>$v)
-                                    <div class="address-item J_addressItem" 
-                                     data-address_id='{{$v->id}}'
-                                     data-consignee='{{$v->consignee}}'
-                                     data-tel='{{$v->tel}}'
-                                     data-province_name='{{$v->province}}'
-                                     data-city_name='{{$v->city}}'
-                                     data-district_name='{{$v->district}}'
-                                     data-address='{{$v->address}}'
-                                    >
-                                        <dl>
-                                            <dt>
-                                                <span class="tag"></span> <em class="uname">{{$v->consignee}}</em>
-                                            </dt>
-                                            <dd class="utel">{{$v->tel}}</dd>
-                                            <dd class="uaddress">
-                                                {{$v->province}}  {{$v->city}}  {{$v->district}}
-                                                <br>{{$v->address}}</dd>
-                                        </dl>
-                                        <div class="actions">
-                                            <!-- <a href="javascript:void(0);" data-id="{{$v->id}}" class="modify J_addressModify">修改</a> --><a href="javascript:void(0);" class="modify J_addressDel">删除</a>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                    @endif
-                                    
+                                <div class="xm-goods-list-wrap">
+                                    <ul class="xm-goods-list clearfix">
+                                        <li class="xm-goods-item">
+                                            <div class="figure figure-img">
+                                                <a href="//item.mi.com/1161000021.html" target="_blank">
+                                                    <img src="//i1.mifile.cn/a1/T1QxKvBgCv1RXrhCrK!200x200.jpg" />
+                                                </a>
+                                            </div>
+                                            <h3 class="title">
+                                                <a href="//item.mi.com/1161000021.html">小米短袖T恤 轻松米兔</a>
+                                            </h3>
+                                            <p class="price">39元</p>
+                                            <p class="rank">4273人评价</p>
+                                            <div class="actions">
+                                                <a class="btn btn-primary btn-small J_btnComment" data-gid="2161000055" href="http://order.mi.com/comment/commentAdd/gid/2161000055">去评价</a>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div id="J_modalEditAddress" class="modal fade modal-hide modal-edit-address">
-                    <div class="modal-body"></div>
-                </div>
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('js')
 <script src="/homes/common/myjs/jquery.min.js"></script>
-<script src="/homes/common/js/address_all.js"></script>        
-<script src="/homes/common/myjs/address.js"></script> 
+<script src="/data/indexNav.js"></script>
+<script src="/data/indexData.js"></script>
+<script src="/homes/common/myjs/common.js"></script>
 @endsection

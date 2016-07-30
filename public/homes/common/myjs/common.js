@@ -3,7 +3,10 @@ jQuery(function(){
     ~function($){
         $('#J_miniCartTrigger').hover(function(){
             $(this).addClass('topbar-cart-active');
-            $('#J_miniCartMenu').stop().slideDown(200);
+            $('#J_miniCartMenu').stop().slideDown(200,function(){
+                //触发ajax发送请求获取购物车数据
+
+            });
         },function(){
             $(this).removeClass('topbar-cart-active');
             $('#J_miniCartMenu').stop().slideUp(200);
@@ -70,17 +73,17 @@ jQuery(function(){
         $search = $('#search');
         $form = $('#J_searchForm');
         $words = $form.find('.search-hot-words');
-        if($form.length){
-            $list = $('<div id="J_keywordList" class="keyword-list hide"><ul class="result-list"></ul></div>');
-            $cont = $list.find('>ul');
-            $list.appendTo($form);
-        }
+        // if($form.length){
+        //     $list = $('<div id="J_keywordList" class="keyword-list hide"><ul class="result-list"></ul></div>');
+        //     $cont = $list.find('>ul');
+        //     $list.appendTo($form);
+        // }
         $search.on({
             click:function(){
                 $form.addClass('search-form-focus');
-                if(!$form.data('oneClick')){
-                    getResultList($cont);
-                }
+                // if(!$form.data('oneClick')){
+                //     getResultList($cont);
+                // }
                 $form.data('oneClick',true);
                 $list.removeClass('hide'),$words.addClass('hide');
 
@@ -91,15 +94,15 @@ jQuery(function(){
             }
         });
 
-        function getResultList($cont){
-            var arr = [1,2,3,4,5,6];
-            var str = '';
-            for(var i=0;i<arr.length;i++){
-                str += '<li data-key="小米手机5"><a href="#">小米手机5<span class="result">约有11件</span></a></li>';
-                console.log(i)
-            }
-            $cont.html(str);
-        }
+        // function getResultList($cont){
+        //     var arr = [1,2,3,4,5,6];
+        //     var str = '';
+        //     for(var i=0;i<arr.length;i++){
+        //         str += '<li data-key="小米手机5"><a href="#">小米手机5<span class="result">约有11件</span></a></li>';
+        //         console.log(i)
+        //     }
+        //     $cont.html(str);
+        // }
     }($);
     
     //分类导航
@@ -110,14 +113,14 @@ jQuery(function(){
                 var temp = '<div class="site-category"> <ul id="J_categoryList" class="site-category-list clearfix">';
                 for(var i=0;i<arr.length;i++){
                     temp+= '<li class="category-item">';
-                        temp+= '<a class="title" href="/list?id='+arr[i]['data']['id']+'">';
+                        temp+= '<a class="title" href="//www.mi.com/buyphone/">';
                             temp+= arr[i]['data']['title']+' <i class="iconfont"></i>';
                         temp+= '</a>';
                         temp+= '<div class="children clearfix children-col-2"  style="width:'+265*Math.ceil(arr[i]['child'].length/7)+'px;">';
                             temp+= '<ul class="children-list children-list-col children-col-1">';
                                 for(var j=0;j<arr[i]['child'].length;j++){
                                     temp+= '<li class="star-goods">';
-                                        temp+= '<a class="link" href="/detail?id='+arr[i]['child'][j]["id"]+'">';
+                                        temp+= '<a class="link" href="'+arr[i]['child'][j]["id"]+'">';
                                             temp+= '<img class="thumb" src="'+arr[i]['child'][j]["img"]+'" width="40" height="40" alt="">';
                                             temp+= '<span class="text">'+arr[i]['child'][j]["title"]+'</span>';
                                         temp+= '</a>';
@@ -222,6 +225,16 @@ jQuery(function(){
         dealNavData(navData);
     }($,navData);
     
+
+    //鼠标滑过显示个人中心菜单效果
+    $('#J_userInfo').on('mouseenter','.user',function(){
+        $(this).addClass('user-active');
+        $(this).find('.user-menu').stop().slideDown(200);
+    }).on('mouseleave','.user',function(){
+        $(this).removeClass('user-active');
+        $(this).find('.user-menu').stop().slideUp(200);
+    })
+
 
     
 });

@@ -54,11 +54,15 @@
                 <span class="sep">|</span>
                 <a  rel="nofollow" class="link" href="https://account.xiaomi.com/pass/register" >注册</a>
             </div>
-            <?php }else{ ?>
+            <?php 
+                }else{ 
+
+                    $user = \App\Http\Controllers\Home\UserController::gainUsername();
+            ?>
             <div class="topbar-info" id="J_userInfo">
                 <span class="user">
                     <a rel="nofollow" class="user-name" href="//my.mi.com/portal" target="_blank">
-                        <span class="name">李庆国</span> <i class="iconfont"></i>
+                        <span class="name">{{$user->username}}</span> <i class="iconfont"></i>
                     </a>
                     <ul class="user-menu" style="display: none;">
                         <li>
@@ -84,12 +88,12 @@
     <div class="site-header">
         <div class="container">
             <div class="header-logo">
-                <a class="logo ir" href="//www.mi.com/index.html" title="小米官网">小米官网</a>
+                <a class="logo ir" href="/" title="小米官网">小米官网</a>
             </div>
             <div class="header-nav">
                 <ul class="nav-list J_navMainList clearfix">
                     <li id="J_navCategory" class="nav-category">
-                        <a class="link-category" href="//list.mi.com">
+                        <a class="link-category" href="/list">
                             <span class="text">全部商品分类</span>
                         </a>
                         <!-- 分类导航 start -->
