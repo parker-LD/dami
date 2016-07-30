@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\Home;
 
 use App\Comment;
 use App\Sku;

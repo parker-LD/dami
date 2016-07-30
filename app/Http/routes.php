@@ -20,29 +20,37 @@ Event::listen('illuminate.query',function($query){
 //     var_dump($query);
 });
 
-
+//迪迪
 Route::group(['middleware'=>'home'],function () {
-
-
+    Route::get('/', 'Home\IndexController@index');
+//定义前台help路由
+    Route::controller('/help','Home\HelpController');
+//定义购物车路由
+    Route::get('/cart','Home\CartController@index');
+    Route::get('/cart/ajaxaddcart','Home\CartController@ajaxAddCart');
+    Route::controller('/cart','Home\CartController');
+//确认订单的路由
+    Route::get('/order/confirm','Home\OrderController@confirm');
+    Route::get('/order/changeStatus','Home\OrderController@changeStatus');
+    Route::controller('/order','Home\OrderController');
+//定义地址路由
+    Route::controller('/address','Home\AddressController');
+//定义个人中心路由
+    Route::controller('/user','Home\UserController');
 
     
 });
 
 
 
-Route::controller('/login','home\LoginController');
-
-Route::group(['namespace'=>'home','middleware'=>'home'],function () {
+Route::controller('/login','Home\LoginController');
+Route::group(['namespace'=>'Home','middleware'=>'home'],function () {
     Route::get('/list', 'ListController@list_');
     Route::get('/list_search', 'ListController@list_Search');
     Route::get('/detail', 'ListController@detail');
     Route::get('/comment', 'CommentController@comment');
     Route::post('/comment/insert', 'CommentController@insert');
 });
-
-
-
-
 Route::controller('/admin/login','admin\LoginController');
 Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>'login'],function (){
     Route::get('/','AdminController@index');
@@ -51,4 +59,12 @@ Route::group(['prefix'=>'admin','namespace'=>'admin','middleware'=>'login'],func
     Route::controller('/good','GoodsController');
     Route::controller('/sku','SkuController');
     Route::controller('/comment','CommentController');
+
+    //定义后台首页模块路由
+    Route::controller('/indexPage','IndexController');
+    //定义后台help帮助路由
+    Route::controller('/help','HelpController');
+    //后台订单路由
+    Route::controller('/order','OrderController');
+
 });

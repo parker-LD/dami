@@ -125,6 +125,34 @@
                         <li><a href="{{url('/admin/comment')}}">评价列表</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:;"><i class="icon-list"></i>网站导航管理</a>
+                    <ul>
+                        <li><a href="/admin/indexPage/navlist">网站导航栏目</a></li>
+                        <li><a href="/admin/indexPage/navadd">添加网站导航</a></li>
+                        <li><a href="/admin/indexPage/navrecycle">网站导航回收站</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="icon-list"></i>首页管理</a>
+                    <ul>
+                        <li><a href="/admin/indexPage/sort">分类导航脚本文件更新</a></li>
+                        <li><a href="/admin/indexPage/staradd">明星单品管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="icon-list"></i>帮助栏目管理</a>
+                    <ul>
+                        <li><a href="/admin/help/cate">帮助栏目分类</a></li>
+                        <li><a href="/admin/help/article">帮助栏目内容管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="icon-list"></i>订单管理</a>
+                    <ul>
+                        <li><a href="/admin/order">订单列表</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
