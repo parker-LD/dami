@@ -316,6 +316,7 @@
                                         if(data){
                                             $('#count').html(data);
                                             even.parents('div [class="mws-panel-body no-padding grid_8"]').remove();
+                                            window.location.reload();
                                         }else{
                                            alert('删除失败!');
                                         }
@@ -362,6 +363,7 @@
                     if(data){
                         even.parents('div [class="mws-panel-body no-padding grid_8"]').remove();
                         $('#count').html(data);
+                        window.location.reload();
                     }else{
                         alert('删除失败!');
                     }

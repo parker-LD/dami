@@ -32,7 +32,7 @@ class LoginController extends Controller
 
         if(Hash::check($password,$upass)){
 
-            session(['uid'=>$user->id]);
+            session(['user_id'=>$user->id]);
             session(['pic'=>$user->pic]);
             return redirect('/admin/user');
         }
@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function getOutLogin()
     {
-        session(['uid'=>null]);
+        session(['user_id'=>null]);
         return redirect('/admin/login');
     }
 }

@@ -269,6 +269,7 @@ var inpData = {};
 
     //生成新的收货地址
     function createAddress(data,aid){
+        $('.J_addressItem').removeClass('selected');
         var html = '';
         html += '<div class="address-item J_addressItem selected">';
         html += '<dl><dt><em class="uname">这些擦</em></dt>';

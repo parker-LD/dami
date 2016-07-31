@@ -11,6 +11,7 @@ use App\User;
 use App\Comment;
 use App\Good;
 use App\Sku;
+use App\Address;
 
 class UserController extends Controller
 {
@@ -33,7 +34,7 @@ class UserController extends Controller
                 }
             }
         })
-        ->paginate(1);
+        ->paginate(4);
 
         $order = Order::where('user_id',$uid)->get();
 
@@ -56,7 +57,7 @@ class UserController extends Controller
          $order = Order::findOrFail($id);
          $order->order_status = 3;
          if($order->save()){
-            return back()->with('info','确认收货成功');
+            return redirect('/user/comment?filter=1');
          }else{
             return back()->with('info','确认收货失败');
          }
@@ -185,7 +186,9 @@ class UserController extends Controller
         $uid = session('uid');
         //获取address
         $address = Address::where('user_id',$uid)->get();
-        return view('home.user.address');
+        return view('home.user.address',[
+            'address'=>$address,
+        ]);
     }
 
      /**

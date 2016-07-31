@@ -13,12 +13,7 @@
             <div class="header-logo">
                 <a class="logo " href="//www.mi.com/index.html" title="小米官网"></a>
             </div>
-            <div class="header-title" id="J_miniHeaderTitle"></div>
-            <div class="topbar-info" id="J_userInfo">
-                <a class="link" href="//order.mi.com/site/login" data-needlogin="true">登录</a>
-                <span class="sep">|</span>
-                <a class="link" href="https://account.xiaomi.com/pass/register" >注册</a>
-            </div>
+            <div class="header-title" id="J_miniHeaderTitle"><h2>确认支付</h2></div>
         </div>
     </div>
 @endsection

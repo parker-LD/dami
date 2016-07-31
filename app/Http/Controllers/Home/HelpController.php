@@ -29,7 +29,7 @@ class HelpController extends Controller
 
     public static function getHelp()
     {
-        $cates = HelpCate::where('status',1)->where('pid','<>',0)->take(5)->get();
+        $cates = HelpCate::where('status',1)->where('pid','<>',0)->where('show',1)->take(5)->get();
 
         return $cates;
     }

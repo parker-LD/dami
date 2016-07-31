@@ -1,4 +1,5 @@
 @extends('layout.index')
+@section('title','小米商城')
 
 @section('css')
     <title>小米商城</title>

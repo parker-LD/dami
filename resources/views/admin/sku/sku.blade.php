@@ -299,7 +299,7 @@
                                         $('input[name="title"]').val(data.title);
                                         $('input[name="falsePrice"]').val(data.falsePrice);
                                         $('input[name="price"]').val(data.price);
-                                        $('img').attr('src',data.img);
+                                        $('#form img').attr('src',data.img);
                                         $('input[name="stock"]').val(data.stock);
                                         $('input[name="attr"]').val(data.attr);
                                         $('input[name="color"]').val(data.color);
@@ -318,6 +318,8 @@
                                         if(data){
                                             $('#count').html(data);
                                             even.parents('div [class="mws-panel-body no-padding grid_8"]').remove();
+                                            window.location.reload();
+
                                         }else{
                                            alert('删除失败!');
                                         }
@@ -345,7 +347,7 @@
                     $('input[name="title"]').val(data.title);
                     $('input[name="falsePrice"]').val(data.falsePrice);
                     $('input[name="price"]').val(data.price);
-                    $('img').attr('src',data.img);
+                    $('#form img').attr('src',data.img);
                     $('input[name="stock"]').val(data.stock);
                     $('input[name="attr"]').val(data.attr);
                     $('input[name="color"]').val(data.color);
@@ -366,6 +368,8 @@
                     if(data){
                         even.parents('div [class="mws-panel-body no-padding grid_8"]').remove();
                         $('#count').html(data);
+                        window.location.reload();
+
                     }else{
                         alert('删除失败!');
                     }

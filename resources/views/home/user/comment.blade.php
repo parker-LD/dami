@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','我的订单')
+@section('title','我的评论')
 @section('css')
 <link rel="stylesheet" href="/homes/common/css/base.min.css" />
 <link rel="stylesheet" href="/homes/common/css/main.min.css" />

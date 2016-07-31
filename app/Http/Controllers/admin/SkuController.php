@@ -142,9 +142,12 @@ class SkuController extends Controller
 
         if($dbpic != $defaultpic)
         {
-            if(file_exists($dbpic)) {
+
+            if(file_exists(realpath($dbpic))){
                 unlink(realpath($dbpic));
             }
+                
+          
         }
     }
 

@@ -1,4 +1,4 @@
-jQuery(function(){
+$(function(){
      //购物车划过效果
     ~function($){
         $('#J_miniCartTrigger').hover(function(){
@@ -18,7 +18,7 @@ jQuery(function(){
     ~function($){
        //获取导航
         var j_menu = $('#J_navMenu');
-        var cont = j_menu.find('.container')
+        var cont = j_menu.find('.container');
         //记录网站导航划过定时器
         var timer = null;
         $('.J_navMainList').on('mouseenter','.nav-item',function(){
@@ -34,7 +34,7 @@ jQuery(function(){
                 //显示主图
                 obj.find('img').each(function(){
                     $(this).attr('src',$(this).attr('data-src'));
-                }) 
+                }) ;
                 cont.html(obj);                    
                 timer = setTimeout(function(){
                     j_menu.stop(!0, !1).slideDown(200);
@@ -113,14 +113,14 @@ jQuery(function(){
                 var temp = '<div class="site-category"> <ul id="J_categoryList" class="site-category-list clearfix">';
                 for(var i=0;i<arr.length;i++){
                     temp+= '<li class="category-item">';
-                        temp+= '<a class="title" href="//www.mi.com/buyphone/">';
-                            temp+= arr[i]['data']['title']+' <i class="iconfont"></i>';
+                        temp+= '<a class="title" href="/list?id='+arr[i]['data']['id']+'">';
+                            temp+=arr[i]['data']['title']+' <i class="iconfont"></i>';
                         temp+= '</a>';
                         temp+= '<div class="children clearfix children-col-2"  style="width:'+265*Math.ceil(arr[i]['child'].length/7)+'px;">';
                             temp+= '<ul class="children-list children-list-col children-col-1">';
                                 for(var j=0;j<arr[i]['child'].length;j++){
                                     temp+= '<li class="star-goods">';
-                                        temp+= '<a class="link" href="'+arr[i]['child'][j]["id"]+'">';
+                                        temp+= '<a class="link" href="/detail?id='+arr[i]['child'][j]["id"]+'">';
                                             temp+= '<img class="thumb" src="'+arr[i]['child'][j]["img"]+'" width="40" height="40" alt="">';
                                             temp+= '<span class="text">'+arr[i]['child'][j]["title"]+'</span>';
                                         temp+= '</a>';
@@ -147,7 +147,7 @@ jQuery(function(){
                 $(this).removeClass('category-item-active');
             }
         });
-        console.log($('#J_navCategory').find('.link-category').css('visibility'));
+        //console.log($('#J_navCategory').find('.link-category').css('visibility'));
         //分类导航划过显示
         $('#J_navCategory').on({
             mouseenter:function(){
@@ -205,7 +205,7 @@ jQuery(function(){
                                 for(var j=0;j<navData[i]['info'].length;j++){
                                     str +='<li class="first">';
                                         str +='<div class="figure figure-thumb">';
-                                            str +='<a href="'+navData[i]['info'][j]['good_id']+'">';
+                                            str +='<a href="/detail?id='+navData[i]['info'][j]['good_id']+'">';
                                                 str +='<img src="'+navData[i]['info'][j]['img']+'" width="160" height="110">';
                                             str +='</a>';
                                         str +='</div>';

@@ -476,8 +476,8 @@ class CartController extends Controller
                 $this->data['status'] = 0;
                 $this->data['msg'] = 'ok';
                 echo json_encode($this->data);
-                die;
-                
+//                die;
+
             }else{
 //                dd(444);
                 //修改session值
@@ -492,7 +492,7 @@ class CartController extends Controller
                 $this->data['status'] = 0;
                 $this->data['msg'] = 'ok';
                 echo json_encode($this->data);
-                die;
+//                die;
 
             }
             

@@ -38,21 +38,21 @@
                 <a rel="nofollow" href="#J_modal-globalSites" data-toggle="modal">Select Region</a>
             </div>
             <div class="topbar-cart" id="J_miniCartTrigger">
-                <a rel="nofollow" class="cart-mini" id="J_miniCartBtn" href="//static.mi.com/cart/"> <i class="iconfont">&#xe60c;</i>
+                <a rel="nofollow" class="cart-mini" id="J_miniCartBtn" href="/cart/"> <i class="iconfont">&#xe60c;</i>
                     购物车
                     <span class="cart-mini-num J_cartNum"></span>
                 </a>
-                <div class="cart-menu" id="J_miniCartMenu">
-                    <div class="loading">
-                        <div class="loader"></div>
-                    </div>
-                </div>
+                {{--<div class="cart-menu" id="J_miniCartMenu">--}}
+                    {{--<div class="loading">--}}
+                        {{--<div class="loader"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
              <?php if(!session('uid')){?>
             <div class="topbar-info" id="J_userInfo">
-                <a  rel="nofollow" class="link" href="//order.mi.com/site/login" data-needlogin="true">登录</a>
+                <a  rel="nofollow" class="link" href="/login" data-needlogin="true">登录</a>
                 <span class="sep">|</span>
-                <a  rel="nofollow" class="link" href="https://account.xiaomi.com/pass/register" >注册</a>
+                <a  rel="nofollow" class="link" href="/register" >注册</a>
             </div>
             <?php 
                 }else{ 
@@ -61,7 +61,7 @@
             ?>
             <div class="topbar-info" id="J_userInfo">
                 <span class="user">
-                    <a rel="nofollow" class="user-name" href="//my.mi.com/portal" target="_blank">
+                    <a rel="nofollow" class="user-name" href="/user/comment" target="_blank">
                         <span class="name">{{$user->username}}</span> <i class="iconfont"></i>
                     </a>
                     <ul class="user-menu" style="display: none;">

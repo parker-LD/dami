@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','我的订单')
+@section('title','我的地址')
 @section('css')
 <link rel="stylesheet" href="/homes/common/css/base.min.css" />
 <link rel="stylesheet" href="/homes/common/css/main.min.css" />
@@ -136,5 +136,8 @@
 @section('js')
 <script src="/homes/common/myjs/jquery.min.js"></script>
 <script src="/homes/common/js/address_all.js"></script>        
-<script src="/homes/common/myjs/address.js"></script> 
+<script src="/homes/common/myjs/address.js"></script>
+<script src="/data/indexNav.js"></script>
+<script src="/data/indexData.js"></script>
+<script src="/homes/common/myjs/common.js"></script>
 @endsection

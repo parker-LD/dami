@@ -1,6 +1,7 @@
 @extends('layout.index')
+@section('title','小米官网')
+
 @section('css')
-    <title>小米官网</title>
     <link rel="shortcut icon" href="/homes/common/img/favicon.ico" />
     <link href="/homes/common/css/style.css" rel="stylesheet" type="text/css" />
     <link href="/homes/common/css/category.css" rel="stylesheet" type="text/css" />

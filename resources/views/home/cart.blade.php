@@ -11,38 +11,47 @@
 <div class="site-header site-mini-header">
     <div class="container">
         <div class="header-logo">
-            <a class="logo ir" href="//www.mi.com/index.html" title="小米官网" data-stat-id="f4006c1551f77f22" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-f4006c1551f77f22', '//www.mi.com/index.html', 'pcpid']);">小米官网</a>
+            <a class="logo ir" href="/" title="小米官网" data-stat-id="f4006c1551f77f22" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-f4006c1551f77f22', '//www.mi.com/index.html', 'pcpid']);">小米官网</a>
         </div>
         <div class="header-title has-more" id="J_miniHeaderTitle">
             <h2>我的购物车</h2>
             <p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
         </div>
+        <?php if(!session('uid')){?>
         <div class="topbar-info" id="J_userInfo">
-            <span class="user">
-                <a rel="nofollow" class="user-name" href="//my.mi.com/portal" target="_blank" data-stat-id="e93bfcbadd6aad09" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-e93bfcbadd6aad09', '//my.mi.com/portal', 'pcpid']);">
-                    <span class="name">A怪兽</span> <i class="iconfont"></i>
-                </a>
-                <ul class="user-menu" style="display: none;">
-                    <li>
-                        <a rel="nofollow" href="//my.mi.com/portal" target="_blank" data-stat-id="e0b9e1d1fa8052a2" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-e0b9e1d1fa8052a2', '//my.mi.com/portal', 'pcpid']);">个人中心</a>
-                    </li>
-                    <li>
-                        <a rel="nofollow" href="//order.mi.com/user/comment" target="_blank" data-stat-id="6d05445058873c2c" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-6d05445058873c2c', '//order.mi.com/user/comment', 'pcpid']);">评价晒单</a>
-                    </li>
-                    <li>
-                        <a rel="nofollow" href="//order.mi.com/user/favorite" target="_blank" data-stat-id="32e2967e9a749d3d" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-32e2967e9a749d3d', '//order.mi.com/user/favorite', 'pcpid']);">我的喜欢</a>
-                    </li>
-                    <li>
-                        <a rel="nofollow" href="http://account.xiaomi.com/" target="_blank" data-stat-id="6c2aba14bc7f649a" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-6c2aba14bc7f649a', 'http://account.xiaomi.com/', 'pcpid']);">小米账户</a>
-                    </li>
-                    <li>
-                        <a rel="nofollow" href="//order.mi.com/site/logout" data-stat-id="770a31519c713b11" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-770a31519c713b11', '//order.mi.com/site/logout', 'pcpid']);">退出登录</a>
-                    </li>
-                </ul>
-            </span>
+            <a  rel="nofollow" class="link" href="/login" data-needlogin="true">登录</a>
             <span class="sep">|</span>
-            <a rel="nofollow" class="link link-order" href="//static.mi.com/order/" target="_blank" data-stat-id="a9e9205e73f0742c" onclick="_msq.push(['trackEvent', '08fae3d5cb3abaaf-a9e9205e73f0742c', '//static.mi.com/order/', 'pcpid']);">我的订单</a>
+            <a  rel="nofollow" class="link" href="/register" >注册</a>
         </div>
+        <?php
+        }else{
+
+        $user = \App\Http\Controllers\Home\UserController::gainUsername();
+        ?>
+        <div class="topbar-info" id="J_userInfo">
+                <span class="user">
+                    <a rel="nofollow" class="user-name" href="/user/comment" target="_blank">
+                        <span class="name">{{$user->username}}</span> <i class="iconfont"></i>
+                    </a>
+                    <ul class="user-menu" style="display: none;">
+                        <li>
+                            <a rel="nofollow" href="/portal">个人中心</a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="/user/comment" target="_blank">评价晒单</a>
+                        </li>
+                        <!-- <li>
+                            <a rel="nofollow" href="http://order.mi.com/user/favorite" target="_blank">我的喜欢</a>
+                        </li> -->
+                        <li>
+                            <a rel="nofollow" href="/user/logout">退出登录</a>
+                        </li>
+                    </ul>
+                </span>
+            <span class="sep">|</span>
+            <a rel="nofollow" class="link link-order" href="/user/order/" target="_blank">我的订单</a>
+        </div>
+        <?php } ?>
     </div>
 </div>
 @endsection
@@ -232,4 +241,14 @@
 </script>
 <script src="/homes/common/myjs/jquery.min.js"></script>
 <script src="/homes/common/myjs/cart.js"></script>
+<script>
+    //鼠标滑过显示个人中心菜单效果
+    $('#J_userInfo').on('mouseenter','.user',function(){
+        $(this).addClass('user-active');
+        $(this).find('.user-menu').stop().slideDown(200);
+    }).on('mouseleave','.user',function(){
+        $(this).removeClass('user-active');
+        $(this).find('.user-menu').stop().slideUp(200);
+    })
+</script>
 @endsection

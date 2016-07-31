@@ -52,7 +52,7 @@ class ListController extends Controller
         $good->info = $info;
         
 //        dd($good->info);
-        return view('home.detail',['good'=>$good]);
+        return view('home.detail',['good'=>$good,'title'=>'详情']);
     }
 
 
@@ -82,38 +82,53 @@ class ListController extends Controller
 
 
         
-        return view('home.list',['goods'=>$goods]);
+        return view('home.list',['goods'=>$goods,'title'=>'小米商城']);
     }
 
     public function List_Search(Request $request)
     {
         $data = $request->all();
 
+//        dd($data['kWord']);
+
 //        /**测试**/ $data['kWord'] = '手机'; /**结束**/
 
         $cates = Cate::where('pid',0)->get();
 
 
-        $cate = Cate::where('name','like','%'.$data['kWord'].'%')->where('pid',0)->get();
+//        $cate = Cate::where('name','like','%'.$data['kWord'].'%')->where('pid',0)->get();
+        $cate = Cate::where('name','like','%'.$data['kWord'].'%')->get();
+
+
+//        dd($cate);
 
         $pid = [];
+
         foreach ($cate as $key => $value) {
             $pid[] = $value->id;
         }
+
+
 
         $cate = Cate::whereIn('pid',$pid)->get();
 
-        $pid = [];
-        foreach ($cate as $key => $value) {
-            $pid[] = $value->id;
+
+        if($cate->count()) {
+            $id = [];
+            foreach ($cate as $key => $value) {
+                $id[] = $value->id;
+            }
+            $search_goods = Good::whereIn('cate_id',$id )->Get();
+
+        }else{
+            $search_goods = Good::whereIn('cate_id', $pid)->Get();
         }
-        $search_goods = Good::whereIn('cate_id',$pid)->Get();
 
 
 
         $goods = Good::take('10')->orderBy('created_at','desc')->get();
 
-        return view('home.list_search',['cates'=>$cates,'search_goods'=>$search_goods,'goods'=>$goods]);
+        return view('home.list_search',['cates'=>$cates,'search_goods'=>$search_goods,'goods'=>$goods,'title'=>'小米商城']);
     }
 
     

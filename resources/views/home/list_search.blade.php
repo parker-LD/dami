@@ -1,9 +1,15 @@
 @extends('layout.index')
+
+@section('title','小米商城')
 @section('css')
+
+
     <script type="text/javascript" async="" src="http://a.stat.xiaomi.com/js/mstr.js?mstpid=a5543b161410aa8b-3306e9b581810c0b&amp;mid=&amp;phpsessid=&amp;mstuid=1469708547901_2895&amp;sessionId=1073614414&amp;muuid=&amp;mucid=&amp;mstprevpid=a5543b161410aa8b-3306e9b581810c0b&amp;lastsource=dami.com&amp;timestamp=1469723055285&amp;domain=.mi.com&amp;screen=1366*768&amp;language=zh-CN&amp;vendor=Google%20Inc.&amp;platform=Win32&amp;target=javascript%3Avoid(0)%3B&amp;prevtarget=javascript%3Avoid(0)%3B&amp;pid_loc=pcpid&amp;mstprev_pid_loc=pcpid&amp;domain_id=100&amp;pageid=a5543b161410aa8b&amp;curl=http%3A%2F%2Fsearch.mi.com%2Fsearch_%25E6%2589%258B%25E6%259C%25BA&amp;xmv=1469708547901_2895_1469721279109&amp;v=1.4.10&amp;vuuid=FBLQD4TR22D9FM9B"></script>
 
     <script type="text/javascript" async="" src="/homes/common/js/unjcV2.js"></script>
     <script type="text/javascript" async="" src="/homes/common/js/jquery-1.9.1.min.js"></script>
+
+    <script src="/homes/common/js/base.min.js"></script>
 
     <script type="text/javascript" async="" src="/homes/common/js/jquery.statData.min.js"></script>
     <script type="text/javascript" async="" src="/homes/common/js/xmst.js"></script>
@@ -132,8 +138,8 @@
 </div>
 @endsection
 
+
 @section('LDjs')
-<script src="/homes/common/js/base.min.js"></script>
 <script>
     (function() {
         MI.namespace('GLOBAL_CONFIG');

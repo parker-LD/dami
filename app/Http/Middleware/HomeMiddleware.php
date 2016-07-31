@@ -20,11 +20,16 @@ class HomeMiddleware
             return $next($request);
 
         }
-        if(array_key_exists('HTTp_REFERER',$_SESSION)){
-            session(['back'=>$_SESSION['HTTP_REFERER']]);
+        if(array_key_exists('HTTP_REFERER',$_SERVER)){
+            session(['back'=>$_SERVER['HTTP_REFERER']]);
         }
 
-        return redirect('/login');
+        if(session('back')){
+            return redirect(session('back'));
+        }else {
+            return redirect('/login');
+        }
+
 
     }
 }
