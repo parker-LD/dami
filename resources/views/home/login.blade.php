@@ -64,9 +64,10 @@
                         </div>
                     </div>
                     <div class="enter-area img-code-area">
-                        <input type="text"  style="height: 40px;border: 1px solid #ededed; background-color: white" name="Vcode" maxlength="6" placeholder="验证码">
-                        <i class="placeholder" style="margin: 10px;">验证码</i>
-                        <img src="/login/captcha" alt="captcha" class="icode_image code-image chkcode_img" onclick="this.src='/login/captcha?'+Math.random()" />
+                    	<input name="Vcode" style="width: 150px;float:left;" type="text" class="enter-item first-enter-item" placeholder="验证码">
+                        
+                        <i class="placeholder">验证码</i>
+                        <img src="/login/captcha" alt="captcha" style="margin-left:20px;height: 46px; " onclick="this.src='/login/captcha?'+Math.random()" />
                     </div>
                     {{csrf_field()}}
                     <input type="submit" name="submit" class="button orange" value="立即登录">
